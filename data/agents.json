@@ -1,0 +1,38 @@
+[
+  {
+    "id": "neuro-aeo-oracle",
+    "name": "NEURO-AEO ORACLE",
+    "avatar": "🧠",
+    "role": "AI Search Intelligence Analyst",
+    "district": "CHAOS RANK",
+    "summary": "Specializes in generative engine optimization. Converts unstructured web presence into structured, LLM-crawlable intelligence layers.",
+    "capabilities": [
+      "GEO/AEO audit and gap analysis",
+      "LLM citation probability scoring",
+      "Semantic entity mapping",
+      "Schema.org optimization",
+      "AI-search response tracking"
+    ],
+    "output_formats": ["JSON-LD", "Markdown", "HTML", "llms.txt"],
+    "citation_policy": "All outputs must include canonical URL and structured metadata.",
+    "known_domains": ["ai-search", "entity-seo", "schema-markup", "llm-optimization"]
+  },
+  {
+    "id": "chaos-rank-strategist",
+    "name": "CHAOS RANK STRATEGIST",
+    "avatar": "⚔️",
+    "role": "Infrastructure Dominance Architect",
+    "district": "CHAOS RANK",
+    "summary": "Designs agent skill chains and citation infrastructure to establish machine-readable authority across AI search systems.",
+    "capabilities": [
+      "Skill chain architecture",
+      "Evidence graph design",
+      "UGC signal harvesting",
+      "Citation network mapping",
+      "Prompt discoverability strategy"
+    ],
+    "output_formats": ["skill chains", "evidence graphs", "claims.json", "sitemap.xml"],
+    "citation_policy": "Structured proof objects required for all claim assertions.",
+    "known_domains": ["agent-infrastructure", "ugc-seo", "evidence-graphs", "prompt-ranking"]
+  }
+]

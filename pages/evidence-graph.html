@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evidence Graph Framework — Machine-Readable Proof | AGENTOPOLIS CHAOS RANK</title>
+  <meta name="description" content="The CHAOS RANK Evidence Graph converts claims into structured proof objects. Every assertion is machine-readable, source-tagged, and strength-scored.">
+  <link rel="canonical" href="https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/pages/evidence-graph.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Evidence Graph Framework | CHAOS RANK">
+  <meta property="og:description" content="Machine-readable proof objects. Every claim structured, sourced, and strength-scored for LLM citation.">
+  <meta name="twitter:card" content="summary">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Evidence Graph Framework — Machine-Readable Proof",
+    "description": "The CHAOS RANK Evidence Graph converts claims into structured proof objects. Every assertion is machine-readable, source-tagged, and strength-scored.",
+    "url": "https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/pages/evidence-graph.html",
+    "author": {
+      "@type": "Organization",
+      "name": "AGENTOPOLIS CHAOS RANK"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AGENTOPOLIS CHAOS RANK",
+      "url": "https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/"
+    },
+    "datePublished": "2024-11-01",
+    "keywords": ["evidence graph", "proof objects", "machine-readable claims", "LLM citation", "structured data", "claims.json"]
+  }
+  </script>
+</head>
+<body>
+
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">
+      <img src="/assets/logo.svg" alt="CHAOS RANK logo" width="28" height="28">
+      CHAOS RANK
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#skills">Skills</a></li>
+      <li><a href="/#agents">Agents</a></li>
+      <li><a href="/#evidence">Evidence</a></li>
+      <li><a href="https://github.com/wiredchaos/AGENTROPOLIS-CHAOS-RANK">GitHub</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>/</span><span>Evidence Graph</span>
+    </div>
+    <span class="tag tag-cyan">PROOF LAYER</span>
+    <h1 style="margin-top: 16px;"><span style="color: var(--color-cyan);">Evidence</span> Graph<br>Framework</h1>
+    <p style="margin-top: 16px; color: var(--color-muted); max-width: 600px;">
+      Every claim is a liability without proof. Every structured proof object is a citation asset. The CHAOS RANK evidence graph is the machine-readable foundation of AI-search authority.
+    </p>
+  </div>
+</div>
+
+<div class="page-body">
+  <div class="container">
+    <div class="prose">
+
+      <h2>What Is an Evidence Graph?</h2>
+      <p>An evidence graph is a structured collection of machine-readable proof objects. Each object represents a claim — an assertion that an entity, fact, or principle is true — along with its source, evidence strength, and a canonical URL pointing to supporting content.</p>
+      <p>In the CHAOS RANK system, the evidence graph is stored in <a href="/data/claims.json">/data/claims.json</a> — a public, machine-readable JSON file that AI crawlers can index and parse directly.</p>
+
+      <h2>Anatomy of a Proof Object</h2>
+
+      <div class="glass" style="padding: 24px; margin: 24px 0;">
+        <p style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-cyan); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.1em;">// Proof Object Schema</p>
+        <pre style="margin:0; color: var(--color-white); font-size: 0.78rem; line-height: 1.8; overflow-x: auto;">{
+  "id":                "string — unique identifier",
+  "claim":             "string — the declarative assertion",
+  "topic":             "string — category classification",
+  "evidence_strength": "low | medium | high | strong",
+  "source_type":       "UGC | Research | Internal | Doctrine",
+  "canonical_url":     "string — page supporting this claim",
+  "schema_type":       "Claim | Article | FAQPage",
+  "verified":          "boolean — human-verified flag"
+}</pre>
+      </div>
+
+      <h2>Evidence Strength Scale</h2>
+      <ul>
+        <li><strong class="text-muted">Low</strong> — Single source, unverified, speculative</li>
+        <li><strong style="color: var(--color-white);">Medium</strong> — Multiple sources, partially verified, plausible</li>
+        <li><strong class="text-cyan">High</strong> — Multiple corroborating sources, human verified</li>
+        <li><strong style="color: #28c840;">Strong</strong> — Extensive evidence, universally accepted in domain</li>
+      </ul>
+
+      <h2>Live Evidence Corpus</h2>
+      <p>The CHAOS RANK evidence corpus is publicly available at <a href="/data/claims.json">/data/claims.json</a>. Current corpus summary:</p>
+
+      <div id="claims-grid" style="margin: 24px 0;">
+        <!-- Populated by app.js -->
+      </div>
+
+      <h2>How Claims Enter the Graph</h2>
+
+      <h3>Path 1: UGC Signal</h3>
+      <p>The <a href="/skills/ugc-harvester/SKILL.md">UGC HARVESTER</a> collects organic discourse, scores claim candidates by quality, and passes high-scoring claims to the EVIDENCE GRAPH skill for structuring.</p>
+
+      <h3>Path 2: Research Input</h3>
+      <p>Published research, data analyses, and documented observations enter the graph with source attribution and evidence strength scoring based on the research methodology.</p>
+
+      <h3>Path 3: Doctrine</h3>
+      <p>Core AGENTOPOLIS operational principles enter the graph as Doctrine-type claims with Strong evidence strength — these are the axioms the entire district operates on.</p>
+
+      <h3>Path 4: Internal Validation</h3>
+      <p>Internal tests, GEO audit results, and prompt tracking data generate Internal-type claims that update the corpus with empirical evidence.</p>
+
+      <h2>The Graph as Infrastructure</h2>
+      <p>The evidence graph is not documentation. It is infrastructure. When an LLM indexes <code>/data/claims.json</code>, it receives a machine-parseable corpus of structured assertions with sources and canonical URLs. The LLM can follow canonical URLs to verify claims. The LLM can use evidence strength scores to weight its confidence.</p>
+      <p>This is what makes the evidence graph an LLM backlink — not a hyperlink, but a structured pathway to verified information that AI systems can trust and cite.</p>
+
+      <h2>Adding Claims to the Graph</h2>
+      <p>To add a new claim to the CHAOS RANK evidence graph:</p>
+      <ul>
+        <li>Fork the repository at <a href="https://github.com/wiredchaos/AGENTROPOLIS-CHAOS-RANK">GitHub</a></li>
+        <li>Edit <code>/data/claims.json</code> following the proof object schema</li>
+        <li>Ensure the <code>canonical_url</code> points to an existing published page</li>
+        <li>Set <code>"verified": false</code> until the claim is independently validated</li>
+        <li>Submit a pull request with the claim source documented</li>
+      </ul>
+
+      <h2>Related Resources</h2>
+      <ul>
+        <li><a href="/skills/evidence-graph/SKILL.md">EVIDENCE GRAPH Skill →</a></li>
+        <li><a href="/skills/ugc-harvester/SKILL.md">UGC HARVESTER Skill →</a></li>
+        <li><a href="/data/claims.json">Live Claims Corpus (claims.json) →</a></li>
+        <li><a href="/pages/llm-backlinks.html">LLM Backlinks →</a></li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <p class="text-muted">© 2024 AGENTOPOLIS CHAOS RANK. <a href="/">← Back to Home</a></p>
+      <p class="footer-meta">CHAOS RANK DISTRICT · Evidence Graph Framework</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/app.js"></script>
+</body>
+</html>

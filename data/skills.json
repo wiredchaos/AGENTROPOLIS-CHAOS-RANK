@@ -1,0 +1,68 @@
+[
+  {
+    "id": "ugc-harvester",
+    "name": "UGC HARVESTER",
+    "description": "Collects and processes user-generated content to extract AEO/SEO signals, sentiment, and structured citation evidence.",
+    "tier": 1,
+    "layer": "SIGNAL",
+    "district": "CHAOS RANK",
+    "tags": ["UGC", "AEO", "Citation"],
+    "chains_to": ["evidence-graph", "schema-builder"],
+    "chains_from": []
+  },
+  {
+    "id": "evidence-graph",
+    "name": "EVIDENCE GRAPH",
+    "description": "Converts raw claims and citations into machine-readable proof objects structured for LLM consumption.",
+    "tier": 2,
+    "layer": "PROOF",
+    "district": "CHAOS RANK",
+    "tags": ["Graph", "LLM", "Claims"],
+    "chains_to": ["agent-citation-page"],
+    "chains_from": ["ugc-harvester"]
+  },
+  {
+    "id": "geo-audit",
+    "name": "GEO AUDIT",
+    "description": "Audits AI-search discoverability across LLMs, surfaces gaps in citation coverage and schema completeness.",
+    "tier": 2,
+    "layer": "AUDIT",
+    "district": "CHAOS RANK",
+    "tags": ["GEO", "LLM", "Audit"],
+    "chains_to": ["schema-builder", "prompt-rank-tracker"],
+    "chains_from": []
+  },
+  {
+    "id": "schema-builder",
+    "name": "SCHEMA BUILDER",
+    "description": "Generates schema.org JSON-LD markup for entities, claims, articles, and organizations for maximum machine readability.",
+    "tier": 1,
+    "layer": "STRUCTURE",
+    "district": "CHAOS RANK",
+    "tags": ["Schema", "JSON-LD", "SEO"],
+    "chains_to": ["agent-citation-page"],
+    "chains_from": ["ugc-harvester", "geo-audit"]
+  },
+  {
+    "id": "prompt-rank-tracker",
+    "name": "PROMPT RANK TRACKER",
+    "description": "Tracks how often and how accurately AI engines cite AGENTOPOLIS entities in response to targeted prompts.",
+    "tier": 3,
+    "layer": "INTEL",
+    "district": "CHAOS RANK",
+    "tags": ["Prompts", "Tracking", "AI Rank"],
+    "chains_to": [],
+    "chains_from": ["geo-audit"]
+  },
+  {
+    "id": "agent-citation-page",
+    "name": "AGENT CITATION PAGE",
+    "description": "Creates structured, LLM-readable entity pages that serve as citation anchors for AI search responses.",
+    "tier": 3,
+    "layer": "PUBLISH",
+    "district": "CHAOS RANK",
+    "tags": ["Entity", "Citation", "LLM"],
+    "chains_to": [],
+    "chains_from": ["evidence-graph", "schema-builder"]
+  }
+]
