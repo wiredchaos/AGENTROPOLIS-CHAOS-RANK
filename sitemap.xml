@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/</loc>
+    <lastmod>2024-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Machine Layer -->
+  <url>
+    <loc>https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/llms.txt</loc>
+    <lastmod>2024-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Agent Pages -->
+  <url>
+    <loc>https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/agents/neuro-aeo-oracle.html</loc>
+    <lastmod>2024-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/agents/chaos-rank-strategist.html</loc>
+    <lastmod>2024-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Framework Pages -->
+  <url>
+    <loc>https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/pages/ai-search-visibility.html</loc>
+    <lastmod>2024-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/pages/llm-backlinks.html</loc>
+    <lastmod>2024-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/pages/ugc-seo-engine.html</loc>
+    <lastmod>2024-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/pages/evidence-graph.html</loc>
+    <lastmod>2024-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Skills -->
+  <url>
+    <loc>https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/skills/ugc-harvester/SKILL.md</loc>
+    <lastmod>2024-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/skills/evidence-graph/SKILL.md</loc>
+    <lastmod>2024-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/skills/geo-audit/SKILL.md</loc>
+    <lastmod>2024-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/skills/schema-builder/SKILL.md</loc>
+    <lastmod>2024-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/skills/prompt-rank-tracker/SKILL.md</loc>
+    <lastmod>2024-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/skills/agent-citation-page/SKILL.md</loc>
+    <lastmod>2024-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Data Files -->
+  <url>
+    <loc>https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/data/claims.json</loc>
+    <lastmod>2024-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/data/skills.json</loc>
+    <lastmod>2024-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/data/agents.json</loc>
+    <lastmod>2024-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

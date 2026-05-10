@@ -1,0 +1,82 @@
+[
+  {
+    "id": "claim-001",
+    "claim": "AI visibility requires structured citations, not just backlinks",
+    "topic": "AEO",
+    "evidence_strength": "high",
+    "source_type": "UGC",
+    "canonical_url": "/pages/ai-search-visibility.html",
+    "schema_type": "Claim",
+    "verified": true
+  },
+  {
+    "id": "claim-002",
+    "claim": "LLMs prefer entities that publish machine-readable schema.org markup",
+    "topic": "GEO",
+    "evidence_strength": "high",
+    "source_type": "Research",
+    "canonical_url": "/pages/llm-backlinks.html",
+    "schema_type": "Claim",
+    "verified": true
+  },
+  {
+    "id": "claim-003",
+    "claim": "User-generated content with structured metadata generates 3x more AI citations",
+    "topic": "UGC-SEO",
+    "evidence_strength": "medium",
+    "source_type": "UGC",
+    "canonical_url": "/pages/ugc-seo-engine.html",
+    "schema_type": "Claim",
+    "verified": false
+  },
+  {
+    "id": "claim-004",
+    "claim": "Evidence graphs convert unverifiable claims into traceable proof objects",
+    "topic": "Evidence Graph",
+    "evidence_strength": "strong",
+    "source_type": "Internal",
+    "canonical_url": "/pages/evidence-graph.html",
+    "schema_type": "Claim",
+    "verified": true
+  },
+  {
+    "id": "claim-005",
+    "claim": "Infrastructure becomes the terrain others must build on",
+    "topic": "Strategy",
+    "evidence_strength": "strong",
+    "source_type": "Doctrine",
+    "canonical_url": "/index.html",
+    "schema_type": "Claim",
+    "verified": true
+  },
+  {
+    "id": "claim-006",
+    "claim": "Prompt rank tracking reveals AI citation gaps before competitors exploit them",
+    "topic": "Prompt Rank",
+    "evidence_strength": "medium",
+    "source_type": "Research",
+    "canonical_url": "/skills/prompt-rank-tracker/SKILL.md",
+    "schema_type": "Claim",
+    "verified": false
+  },
+  {
+    "id": "claim-007",
+    "claim": "Agent citation pages function as sovereign entity nodes in the LLM knowledge graph",
+    "topic": "Agent Infrastructure",
+    "evidence_strength": "high",
+    "source_type": "Doctrine",
+    "canonical_url": "/agents/neuro-aeo-oracle.html",
+    "schema_type": "Claim",
+    "verified": true
+  },
+  {
+    "id": "claim-008",
+    "claim": "GEO audits identify structural weaknesses in AI-search discoverability within 24 hours",
+    "topic": "GEO",
+    "evidence_strength": "medium",
+    "source_type": "UGC",
+    "canonical_url": "/skills/geo-audit/SKILL.md",
+    "schema_type": "Claim",
+    "verified": false
+  }
+]

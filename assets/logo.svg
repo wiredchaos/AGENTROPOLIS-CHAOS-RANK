@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none">
+  <rect x="1" y="1" width="58" height="58" rx="8" stroke="#00ffe6" stroke-width="1.5" fill="rgba(0,255,230,0.04)"/>
+  <!-- Grid lines -->
+  <line x1="20" y1="1" x2="20" y2="59" stroke="#00ffe6" stroke-width="0.4" stroke-opacity="0.3"/>
+  <line x1="40" y1="1" x2="40" y2="59" stroke="#00ffe6" stroke-width="0.4" stroke-opacity="0.3"/>
+  <line x1="1" y1="20" x2="59" y2="20" stroke="#00ffe6" stroke-width="0.4" stroke-opacity="0.3"/>
+  <line x1="1" y1="40" x2="59" y2="40" stroke="#00ffe6" stroke-width="0.4" stroke-opacity="0.3"/>
+  <!-- A glyph -->
+  <path d="M18 44 L30 16 L42 44" stroke="#00ffe6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <line x1="22" y1="36" x2="38" y2="36" stroke="#00ffe6" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- C accent dots -->
+  <circle cx="10" cy="10" r="2" fill="#ff2d55"/>
+  <circle cx="50" cy="10" r="2" fill="#ff2d55"/>
+  <circle cx="10" cy="50" r="2" fill="#00ffe6" fill-opacity="0.5"/>
+  <circle cx="50" cy="50" r="2" fill="#00ffe6" fill-opacity="0.5"/>
+</svg>

@@ -1,0 +1,39 @@
+User-agent: *
+Allow: /
+
+# AGENTOPOLIS CHAOS RANK — robots.txt
+# All crawlers welcome. This is an open intelligence-grid.
+
+# AI crawlers — full access encouraged
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap
+Sitemap: https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/sitemap.xml
+
+# LLM crawl guidance
+# See: https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/llms.txt
