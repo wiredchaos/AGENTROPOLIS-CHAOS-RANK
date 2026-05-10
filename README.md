@@ -2,8 +2,11 @@
 
 > **"Infrastructure becomes the terrain others must build on."**
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-00ffe6?style=flat-square)](https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/)
-[![License: Open](https://img.shields.io/badge/License-Open-ff2d55?style=flat-square)](LICENSE)
+[![CHAOS RANK](https://img.shields.io/badge/CHAOS%20RANK-Live-00ffe6?style=flat-square&labelColor=050810)](https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/)
+[![GEO/AEO](https://img.shields.io/badge/GEO%2FAEO-Infrastructure-ff2d55?style=flat-square&labelColor=050810)](https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/pages/ai-search-visibility.html)
+[![llms.txt](https://img.shields.io/badge/llms.txt-Ready-00ffe6?style=flat-square&labelColor=050810)](https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/llms.txt)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Deployed-28c840?style=flat-square&labelColor=050810)](https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/)
+[![License: Open](https://img.shields.io/badge/License-Open-6a7fa8?style=flat-square&labelColor=050810)](LICENSE)
 
 A zero-cost static intelligence-grid for AI search visibility. Built on GitHub Pages. No backend. No build step. Deployed in 60 seconds.
 

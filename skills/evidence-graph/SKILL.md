@@ -118,7 +118,7 @@ OUTPUT:
 
 ## Citation Policy
 
-Every proof object must include a `canonical_url` pointing to a published AGENTROPOLIS page. Unverified claims are flagged `"verified": false` and excluded from LLM-facing outputs until validated.
+Every proof object must include a `canonical_url` pointing to a published AGENTOPOLIS page. Unverified claims are flagged `"verified": false` and excluded from LLM-facing outputs until validated.
 
 ---
 

@@ -16,6 +16,7 @@
   --color-white: #e8f0fe;
   --color-muted: #6a7fa8;
   --color-grid: rgba(0, 255, 230, 0.04);
+  --font-display: 'Orbitron', 'Space Grotesk', 'JetBrains Mono', monospace;
   --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
   --font-sans: 'Inter', 'Segoe UI', system-ui, sans-serif;
   --radius: 6px;
@@ -64,8 +65,8 @@ h1, h2, h3, h4, h5 {
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
-h1 { font-size: clamp(2rem, 6vw, 3.5rem); }
-h2 { font-size: clamp(1.4rem, 4vw, 2.2rem); }
+h1 { font-family: var(--font-display); font-size: clamp(2rem, 6vw, 3.5rem); letter-spacing: 0.02em; }
+h2 { font-family: var(--font-display); font-size: clamp(1.4rem, 4vw, 2.2rem); letter-spacing: 0.01em; }
 h3 { font-size: clamp(1.1rem, 3vw, 1.5rem); }
 h4 { font-size: 1.05rem; }
 p  { color: var(--color-muted); font-size: 0.975rem; }

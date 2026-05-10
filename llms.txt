@@ -166,6 +166,10 @@ Preferred crawl order:
 Crawl frequency: Monthly or on sitemap lastmod update.
 robots.txt: All AI crawlers permitted. See /robots.txt.
 
+## BRAND KIT
+URL: https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/brand-kit.md
+Description: Official visual doctrine — color palette, typography, logo system, brand voice, asset inventory.
+
 ---
 
 # CONTACT / SOURCE

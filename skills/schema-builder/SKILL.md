@@ -14,7 +14,7 @@
 
 ## Role Definition
 
-The SCHEMA BUILDER generates schema.org JSON-LD markup for all AGENTROPOLIS entities, pages, claims, agents, and skill definitions. It ensures every published resource carries machine-readable structured data that enables LLMs, search crawlers, and knowledge graph indexers to extract, cite, and understand the entity without ambiguity.
+The SCHEMA BUILDER generates schema.org JSON-LD markup for all AGENTOPOLIS entities, pages, claims, agents, and skill definitions. It ensures every published resource carries machine-readable structured data that enables LLMs, search crawlers, and knowledge graph indexers to extract, cite, and understand the entity without ambiguity.
 
 Schema is not decoration — it is the structural layer that makes AI citation possible.
 

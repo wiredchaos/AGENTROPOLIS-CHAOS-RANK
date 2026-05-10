@@ -1,16 +1,82 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none">
-  <rect x="1" y="1" width="58" height="58" rx="8" stroke="#00ffe6" stroke-width="1.5" fill="rgba(0,255,230,0.04)"/>
-  <!-- Grid lines -->
-  <line x1="20" y1="1" x2="20" y2="59" stroke="#00ffe6" stroke-width="0.4" stroke-opacity="0.3"/>
-  <line x1="40" y1="1" x2="40" y2="59" stroke="#00ffe6" stroke-width="0.4" stroke-opacity="0.3"/>
-  <line x1="1" y1="20" x2="59" y2="20" stroke="#00ffe6" stroke-width="0.4" stroke-opacity="0.3"/>
-  <line x1="1" y1="40" x2="59" y2="40" stroke="#00ffe6" stroke-width="0.4" stroke-opacity="0.3"/>
-  <!-- A glyph -->
-  <path d="M18 44 L30 16 L42 44" stroke="#00ffe6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <line x1="22" y1="36" x2="38" y2="36" stroke="#00ffe6" stroke-width="2.5" stroke-linecap="round"/>
-  <!-- C accent dots -->
-  <circle cx="10" cy="10" r="2" fill="#ff2d55"/>
-  <circle cx="50" cy="10" r="2" fill="#ff2d55"/>
-  <circle cx="10" cy="50" r="2" fill="#00ffe6" fill-opacity="0.5"/>
-  <circle cx="50" cy="50" r="2" fill="#00ffe6" fill-opacity="0.5"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 80" fill="none" role="img" aria-label="AGENTOPOLIS CHAOS RANK">
+  <title>AGENTOPOLIS CHAOS RANK</title>
+  <defs>
+    <filter id="glow-c" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-r" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-sm" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- ── Icon Mark: 72×72 in 4,4 ── -->
+  <g transform="translate(4,4)">
+    <!-- Outer glow layer -->
+    <rect x="0" y="0" width="68" height="68" rx="8" fill="none"
+          stroke="#00ffe6" stroke-width="2.5" opacity="0.15" filter="url(#glow-c)"/>
+    <!-- Main border -->
+    <rect x="0" y="0" width="68" height="68" rx="8"
+          fill="#050810" stroke="#00ffe6" stroke-width="1.2" stroke-opacity="0.75"/>
+    <!-- Inner subtle grid -->
+    <line x1="0" y1="34" x2="68" y2="34" stroke="#00ffe6" stroke-width="0.3" opacity="0.15"/>
+    <line x1="34" y1="0" x2="34" y2="68" stroke="#00ffe6" stroke-width="0.3" opacity="0.15"/>
+
+    <!-- Circuit corner marks -->
+    <polyline points="0,16 0,0 16,0"   stroke="#00ffe6" stroke-width="1.8" fill="none" opacity="0.8"/>
+    <polyline points="52,0 68,0 68,16"  stroke="#00ffe6" stroke-width="1.8" fill="none" opacity="0.8"/>
+    <polyline points="0,52 0,68 16,68"  stroke="#00ffe6" stroke-width="1.8" fill="none" opacity="0.8"/>
+    <polyline points="52,68 68,68 68,52" stroke="#00ffe6" stroke-width="1.8" fill="none" opacity="0.8"/>
+
+    <!-- Signal bars / ranking skyline -->
+    <!-- Bar 1 -->
+    <rect x="9"  y="45" width="9" height="15" rx="2" fill="#00ffe6" fill-opacity="0.38"  filter="url(#glow-sm)"/>
+    <!-- Bar 2 -->
+    <rect x="20" y="36" width="9" height="24" rx="2" fill="#00ffe6" fill-opacity="0.58"  filter="url(#glow-sm)"/>
+    <!-- Bar 3 — dominant red (highest rank) -->
+    <rect x="31" y="22" width="10" height="38" rx="2" fill="#ff2d55" filter="url(#glow-r)"/>
+    <!-- Bar 4 -->
+    <rect x="43" y="30" width="9" height="30" rx="2" fill="#00ffe6" fill-opacity="0.48"  filter="url(#glow-sm)"/>
+
+    <!-- Fang / ranking arrow above dominant bar -->
+    <path d="M36 5 L29 18 L36 15.5 L43 18 Z" fill="#ff2d55" filter="url(#glow-r)"/>
+
+    <!-- Base scan line -->
+    <line x1="7" y1="62" x2="58" y2="62" stroke="#00ffe6" stroke-width="0.7" opacity="0.35"/>
+
+    <!-- Corner accent dots -->
+    <circle cx="3"  cy="3"  r="1.5" fill="#ff2d55" opacity="0.8"/>
+    <circle cx="65" cy="3"  r="1.5" fill="#ff2d55" opacity="0.8"/>
+    <circle cx="3"  cy="65" r="1.5" fill="#00ffe6" opacity="0.4"/>
+    <circle cx="65" cy="65" r="1.5" fill="#00ffe6" opacity="0.4"/>
+  </g>
+
+  <!-- Divider -->
+  <line x1="84" y1="10" x2="84" y2="70" stroke="#00ffe6" stroke-width="0.8" opacity="0.25"/>
+
+  <!-- ── Wordmark ── -->
+  <g transform="translate(94, 0)">
+    <!-- AGENTOPOLIS -->
+    <text y="40"
+          font-family="'Orbitron','Space Grotesk','JetBrains Mono',monospace"
+          font-weight="900"
+          font-size="22"
+          fill="#e8f0fe"
+          letter-spacing="1.8">AGENTOPOLIS</text>
+    <!-- Underline accent -->
+    <line x1="0" y1="47" x2="258" y2="47" stroke="#00ffe6" stroke-width="0.5" opacity="0.3"/>
+    <!-- CHAOS RANK -->
+    <text y="65"
+          font-family="'JetBrains Mono','Courier New',monospace"
+          font-weight="700"
+          font-size="13.5"
+          fill="#00ffe6"
+          letter-spacing="6"
+          filter="url(#glow-sm)">CHAOS RANK</text>
+  </g>
 </svg>

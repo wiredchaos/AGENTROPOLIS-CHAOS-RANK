@@ -117,5 +117,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <!-- Brand Kit -->
+  <url>
+    <loc>https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/brand-kit.md</loc>
+    <lastmod>2024-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 
 </urlset>

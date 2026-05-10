@@ -1,5 +1,5 @@
 /* ============================================================
-   AGENTROPOLIS CHAOS RANK — app.js
+   AGENTOPOLIS CHAOS RANK — app.js
    Vanilla JS · No dependencies · Mobile-ready
    ============================================================ */
 
