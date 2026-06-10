@@ -1,557 +1,305 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AGENTOPOLIS CHAOS RANK — AEO · GEO · Agent Citation Infrastructure</title>
-  <meta name="description" content="AGENTOPOLIS CHAOS RANK is a zero-cost static intelligence-grid for AI search visibility. AEO, GEO, UGC, and agent citation infrastructure for the LLM era.">
-  <link rel="canonical" href="https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEURO Opportunity Center</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/">
-  <meta property="og:title" content="AGENTOPOLIS CHAOS RANK — AEO · GEO · Agent Citation Infrastructure">
-  <meta property="og:description" content="Sovereign AI-search intelligence district. Machine-readable proof for the LLM era.">
-  <meta property="og:image" content="https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/assets/og-image.svg">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AGENTOPOLIS CHAOS RANK">
-  <meta name="twitter:description" content="AEO · GEO · UGC · Agent Citation Infrastructure for AI Search Visibility">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-
-  <link rel="stylesheet" href="/styles/main.css">
-
-  <!-- JSON-LD: Organization -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "AGENTOPOLIS CHAOS RANK",
-    "alternateName": "CHAOS RANK",
-    "description": "Sovereign AI-search intelligence district providing AEO, GEO, UGC signal harvesting, and agent citation infrastructure for the LLM era.",
-    "url": "https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/",
-    "logo": "https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/assets/logo.svg",
-    "knowsAbout": [
-      "AEO — Answer Engine Optimization",
-      "GEO — Generative Engine Optimization",
-      "LLM citation infrastructure",
-      "User-generated content SEO",
-      "Agent skill registries",
-      "Evidence graph frameworks"
-    ],
-    "isPartOf": {
-      "@type": "Organization",
-      "name": "AGENTOPOLIS",
-      "description": "Modular AI agent infrastructure: Infrastructure → Districts → Applications"
-    },
-    "sameAs": [
-      "https://github.com/wiredchaos/AGENTROPOLIS-CHAOS-RANK"
-    ]
-  }
-  </script>
-
-  <!-- JSON-LD: WebSite -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "AGENTOPOLIS CHAOS RANK",
-    "url": "https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/",
-    "description": "Zero-cost static intelligence-grid for AI search visibility.",
-    "inLanguage": "en-US",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
+    :root {
+      --void:#020508; --deep:#040d1a; --surface:#060f1e; --card:#081424;
+      --border:#0d2035; --border2:#132840; --cyan:#00ffc8; --gold:#f0cc6a;
+      --pink:#ff2d78; --orange:#ff6b35; --purple:#9d4edd; --blue:#00b4ff;
+      --green:#39ff14; --white:#e8f4f0; --dim:#2a4060; --muted:#0d2035;
     }
-  }
-  </script>
 
-  <!-- JSON-LD: FAQPage -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is AGENTOPOLIS CHAOS RANK?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "AGENTOPOLIS CHAOS RANK is a static intelligence-grid website that functions as an AEO/GEO/SEO hub, an Agent Skill Registry, a machine-readable LLM citation layer, and a UGC evidence graph framework. It is a district within the AGENTOPOLIS infrastructure canon."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is GEO — Generative Engine Optimization?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "GEO is the practice of optimizing content and entity structure to increase citation frequency in AI-generated search responses from systems like ChatGPT, Perplexity, Google AI Overviews, and Claude."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is AEO — Answer Engine Optimization?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "AEO is the discipline of structuring content so that AI and voice search systems extract and present it as direct answers to user queries, without requiring a click-through to a webpage."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is an evidence graph?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "An evidence graph converts raw claims and citations into structured proof objects that are machine-readable by LLMs. Each claim is linked to its source, strength-scored, and published with a canonical URL — enabling AI systems to cite it with confidence."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How does CHAOS RANK fit into AGENTOPOLIS?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "AGENTOPOLIS follows the architecture: Infrastructure → Districts → Applications. CHAOS RANK is the district responsible for AI-search discoverability, citation infrastructure, and agent skill registries within the AGENTOPOLIS system."
-        }
-      }
-    ]
-  }
-  </script>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: var(--void); overflow-x: hidden; }
+    body { color: var(--dim); font-family: 'Rajdhani', sans-serif; min-height: 100vh; }
+    ::-webkit-scrollbar { width: 3px; background: var(--void); }
+    ::-webkit-scrollbar-thumb { background: var(--border2); }
+
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.25} }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    @keyframes boot { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+    @keyframes flicker { 0%,88%,90%,94%,100%{opacity:1} 89%,92%{opacity:.1} }
+    @keyframes scandown { 0%{top:0} 100%{top:100vh} }
+    @keyframes spin { to{transform:rotate(360deg)} }
+
+    .mono { font-family: 'Share Tech Mono', monospace; }
+    .bebas { font-family: 'Bebas Neue', sans-serif; }
+    .root { position: relative; min-height: 100vh; overflow: hidden; background: var(--void); }
+    #scene { position: fixed; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; }
+    .scanlines { position: fixed; inset:0; z-index:1; pointer-events:none; background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.05) 2px,rgba(0,0,0,.05) 4px); }
+    .scanbar { position: fixed; left:0; right:0; height:1.5px; z-index:2; pointer-events:none; background:linear-gradient(90deg,transparent,var(--cyan),transparent); opacity:.25; animation:scandown 9s linear infinite; }
+    .wrap { position: relative; z-index: 3; max-width: 1440px; margin: 0 auto; padding: 0 24px 48px; }
+
+    header { border-bottom:1px solid var(--border); padding:13px 0; display:flex; justify-content:space-between; align-items:center; animation:boot .5s ease both; gap:16px; }
+    .brand-row { display:flex; align-items:baseline; gap:8px; }
+    .brand-neuro { font-size:22px; color:var(--cyan); letter-spacing:.35em; line-height:1; animation:flicker 9s infinite; text-shadow:0 0 20px rgba(0,255,200,.38); }
+    .brand-title { font-size:22px; color:var(--gold); letter-spacing:.25em; line-height:1; text-shadow:0 0 16px rgba(240,204,106,.25); }
+    .subline { font-size:7px; color:var(--muted); letter-spacing:.2em; margin-top:4px; }
+    .time { font-size:7px; color:var(--muted); }
+    .copy-all { background:rgba(240,204,106,.08); border:1px solid rgba(240,204,106,.35); border-radius:2px; padding:6px 12px; color:var(--gold); font-size:7px; cursor:pointer; }
+
+    .tabs { display:flex; gap:2px; padding:9px 0; border-bottom:1px solid rgba(13,32,53,.45); animation:boot .5s .1s ease both; opacity:0; flex-wrap:wrap; }
+    .tab { background:transparent; border:1px solid var(--border); border-radius:2px; padding:7px 20px; color:var(--muted); font-size:8px; letter-spacing:.15em; cursor:pointer; transition:all .15s; }
+    .tab:hover { color:var(--white); border-color:rgba(0,255,200,.35); }
+    .tab.active { background:rgba(0,255,200,.06); border-color:rgba(0,255,200,.45); color:var(--cyan); }
+    .tab small { display:block; font-size:6px; margin-top:2px; color:inherit; opacity:.75; }
+
+    .statusbar { margin-left:auto; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+    .chip { padding:4px 10px; background:rgba(0,255,200,.06); border:1px solid rgba(0,255,200,.25); border-radius:2px; color:var(--cyan); font-size:7px; }
+
+    main { padding-top:16px; animation:boot .5s .15s ease both; opacity:0; }
+    .section-nav { display:flex; gap:5px; margin-bottom:14px; flex-wrap:wrap; }
+    .section-nav a { font-size:7px; color:var(--cyan); padding:3px 10px; background:rgba(0,255,200,.04); border:1px solid rgba(0,255,200,.16); border-radius:2px; text-decoration:none; }
+    section { margin-bottom:24px; }
+    .section-title { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+    .bar { width:3px; height:18px; background:var(--cyan); border-radius:2px; }
+    .section-title h2 { font-size:16px; color:var(--cyan); letter-spacing:.2em; font-weight:400; }
+    .line { flex:1; height:1px; background:linear-gradient(90deg,rgba(0,255,200,.25),transparent); }
+
+    .qstack { display:flex; flex-direction:column; gap:10px; }
+    .qcard { background:rgba(0,255,200,.025); border:1px solid rgba(0,255,200,.13); border-radius:3px; overflow:hidden; }
+    .qhead { padding:10px 16px; border-bottom:1px solid rgba(0,255,200,.08); display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
+    .question { font-size:8px; color:var(--cyan); line-height:1.6; flex:1; }
+    .actions { display:flex; gap:6px; flex-shrink:0; }
+    button { font-family:'Share Tech Mono', monospace; }
+    .mini { background:transparent; border:1px solid rgba(0,255,200,.25); border-radius:2px; padding:3px 10px; color:var(--cyan); font-size:7px; cursor:pointer; transition:all .15s; }
+    .mini:hover { filter:brightness(1.25); }
+    .mini.ai { color:var(--purple); background:rgba(157,78,221,.06); border-color:rgba(157,78,221,.35); }
+    .mini.copied { color:var(--green); border-color:rgba(57,255,20,.45); background:rgba(57,255,20,.06); }
+    .answer { padding:10px 16px; }
+    textarea { width:100%; background:transparent; border:none; color:#7a9aaa; font-family:'Share Tech Mono', monospace; font-size:9px; line-height:1.85; resize:vertical; min-height:120px; outline:none; }
+    .count { padding:4px 16px; border-top:1px solid rgba(0,255,200,.06); display:flex; justify-content:flex-end; font-size:6px; color:var(--muted); }
+
+    .cta { background:linear-gradient(135deg,rgba(0,255,200,.05),var(--card)); border:1px solid rgba(0,255,200,.25); border-radius:3px; padding:22px; display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; gap:16px; }
+    .cta h3 { font-size:22px; color:var(--cyan); font-weight:400; margin-bottom:4px; }
+    .cta p { font-size:8px; color:var(--dim); }
+    .bigbtn { background:rgba(0,255,200,.08); border:1px solid var(--cyan); border-radius:2px; padding:10px 22px; color:var(--cyan); font-size:16px; letter-spacing:.18em; cursor:pointer; }
+
+    .toast { position:fixed; bottom:18px; right:18px; z-index:10; background:rgba(0,255,200,.08); border:1px solid rgba(0,255,200,.45); color:var(--cyan); padding:10px 14px; font-size:8px; opacity:0; transform:translateY(8px); transition:all .2s; }
+    .toast.show { opacity:1; transform:none; }
+
+    @media (max-width: 840px) {
+      header, .cta { flex-direction:column; align-items:flex-start; }
+      .statusbar { margin-left:0; }
+      .brand-title, .brand-neuro { font-size:18px; }
+      .qhead { flex-direction:column; }
+    }
+  </style>
 </head>
 <body>
+  <div class="root">
+    <canvas id="scene"></canvas>
+    <div class="scanlines"></div>
+    <div class="scanbar"></div>
 
-<!-- ── Navigation ── -->
-<nav class="site-nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a class="nav-logo" href="/">
-      <img src="/assets/logo.svg" alt="CHAOS RANK logo" width="28" height="28">
-      CHAOS RANK
-    </a>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#what-is">What Is</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#agents">Agents</a></li>
-      <li><a href="#evidence">Evidence</a></li>
-      <li><a href="#geo-aeo">GEO/AEO</a></li>
-      <li><a href="https://github.com/wiredchaos/AGENTROPOLIS-CHAOS-RANK">GitHub</a></li>
-    </ul>
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<!-- ── Hero ── -->
-<section id="hero">
-  <div class="container">
-    <div class="hero-inner">
-      <div class="hero-content">
-        <p class="hero-eyebrow">AGENTOPOLIS · CHAOS RANK DISTRICT</p>
-        <h1 class="hero-title">AGENTOPOLIS<br>CHAOS RANK</h1>
-        <p class="hero-subtitle">AEO &bull; GEO &bull; UGC &bull; Agent Citation Infrastructure for AI Search Visibility</p>
-        <div class="hero-cta">
-          <a href="#skills" class="btn btn-primary">⚙ Skill Registry</a>
-          <a href="#agents" class="btn btn-ghost">🤖 Agent Registry</a>
-          <a href="/llms.txt" class="btn btn-ghost">📡 llms.txt</a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-terminal glass">
-          <div class="t-bar">
-            <span class="t-dot t-dot-r"></span>
-            <span class="t-dot t-dot-y"></span>
-            <span class="t-dot t-dot-g"></span>
+    <div class="wrap">
+      <header>
+        <div>
+          <div class="brand-row">
+            <div class="bebas brand-neuro">NEURO</div>
+            <div class="bebas brand-title">OPPORTUNITY CENTER</div>
           </div>
-          <div class="terminal-body" id="hero-terminal" aria-label="CHAOS RANK terminal output"></div>
+          <div class="mono subline">EXTRACT. OFFER. AUTOMATE. LEARN. // NO COMMERCIAL BRANDING</div>
         </div>
-      </div>
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          <span class="mono time" id="clock">00:00:00</span>
+          <button class="copy-all mono" onclick="copyAll()">COPY ALL</button>
+        </div>
+      </header>
+
+      <nav class="tabs" id="tabs"></nav>
+      <main id="app"></main>
     </div>
   </div>
-</section>
+  <div class="toast mono" id="toast">COPIED</div>
 
-<!-- ── Stat Strip ── -->
-<div class="container">
-  <div class="stat-strip">
-    <div class="stat-item glass animate-delay-1">
-      <div class="stat-value" data-count="6" data-suffix="">6</div>
-      <div class="stat-label">Active Skills</div>
-    </div>
-    <div class="stat-item glass animate-delay-2">
-      <div class="stat-value" data-count="2" data-suffix="">2</div>
-      <div class="stat-label">Agents</div>
-    </div>
-    <div class="stat-item glass animate-delay-3">
-      <div class="stat-value" data-count="8" data-suffix="">8</div>
-      <div class="stat-label">Proof Objects</div>
-    </div>
-    <div class="stat-item glass animate-delay-4">
-      <div class="stat-value" data-count="100" data-suffix="%">100%</div>
-      <div class="stat-label">Schema Coverage</div>
-    </div>
-    <div class="stat-item glass animate-delay-1">
-      <div class="stat-value" data-count="0" data-suffix="$">$0</div>
-      <div class="stat-label">Infrastructure Cost</div>
-    </div>
-  </div>
-</div>
+  <script>
+    const C = {
+      cyan:'#00ffc8', gold:'#f0cc6a', pink:'#ff2d78', orange:'#ff6b35',
+      purple:'#9d4edd', blue:'#00b4ff', green:'#39ff14'
+    };
 
-<!-- ── What Is CHAOS RANK ── -->
-<section id="what-is">
-  <div class="container">
-    <p class="section-label">// DISTRICT BRIEF</p>
-    <h2 class="section-title">What Is <span>CHAOS RANK</span></h2>
-    <p class="section-desc">
-      CHAOS RANK is the AI-search intelligence district of AGENTOPOLIS — a modular infrastructure for building machine-readable authority in the LLM era. It is not an SEO agency. It is not a software product. It is an operating system for AI discoverability.
-    </p>
+    const APPLICATIONS = {
+      DEMAND: {
+        name: 'Demand Extractor', status: 'READY', prize: 'Find what people want', color: C.cyan,
+        sections: [{ id:'extract', title:'EXTRACT', questions:[
+          { q:'What are people asking for?', a:'Paste screenshots, comments, posts, support tickets, reviews, or niche signals here.' },
+          { q:'Who wants this?', a:'Identify the buyer: creator, agency, local business, SaaS team, coach, ecommerce owner, founder, or operator.' },
+          { q:'What problem are they trying to solve?', a:'Extract the pain, desired outcome, urgency, current workaround, and reason they would pay.' },
+          { q:'What should NEURO create?', a:'Turn the signal into an offer: automation, service, template, content system, lead magnet, SaaS feature, or done-for-you workflow.' },
+          { q:'How does this make money?', a:'Recommend pricing: free lead magnet, $29/month tool, $97 template, $500 setup, $1,500/month retainer, or enterprise license.' }
+        ]}]
+      },
+      OFFER: {
+        name: 'Offer Builder', status: 'READY', prize: 'Convert demand into revenue', color: C.gold,
+        sections: [{ id:'offer', title:'OFFER', questions:[
+          { q:'Offer name', a:'NEURO Opportunity Engine' },
+          { q:'One-line promise', a:'Find what people want, turn it into an offer, and automate the path to revenue.' },
+          { q:'Target customer', a:'Solo creators, agencies, local businesses, SaaS founders, and operators who need more leads, content, sales, or automation.' },
+          { q:'Core workflow', a:'Input signal → extract demand → score opportunity → build offer → generate content → create outreach → write reusable Hermes Skill.' },
+          { q:'Monetization', a:'$500 setup for businesses, $1,500/month retainer, $97 templates for creators, $29/month self-serve extractor.' }
+        ]}]
+      },
+      AUTOMATE: {
+        name: 'Automation Builder', status: 'READY', prize: 'Turn offers into workflows', color: C.blue,
+        sections: [{ id:'automation', title:'AUTOMATION', questions:[
+          { q:'Input', a:'Screenshot, URL, niche, comments, reviews, customer messages, or support tickets.' },
+          { q:'Process', a:'Extract demand → classify buyer → score willingness to pay → recommend offer → generate fulfillment workflow.' },
+          { q:'Output', a:'Offer brief, content plan, outreach sequence, landing page copy, MVP feature list, and execution checklist.' },
+          { q:'Human approval point', a:'Approve offer positioning, price, risk level, and channel before execution.' },
+          { q:'Repeatable workflow', a:'Save the successful process as a reusable skill so future runs are faster, cheaper, and more consistent.' }
+        ]}]
+      },
+      SKILLS: {
+        name: 'Hermes Skill Memory', status: 'LEARNING', prize: 'Reduce repeat token cost', color: C.purple,
+        sections: [{ id:'skills', title:'SKILLS', questions:[
+          { q:'What should be remembered?', a:'Successful workflows, prompts, scoring logic, outreach formats, offer structures, and automation patterns.' },
+          { q:'Skill files to create', a:'neuro-demand-extraction.md\nneuro-offer-builder.md\nneuro-content-repurpose.md\nneuro-cold-outreach.md\nneuro-local-business-automation.md\nneuro-hermes-skill-writer.md' },
+          { q:'Closed learning loop', a:'After each successful execution, NEURO reflects, extracts reusable procedure, writes a Hermes Skill, and uses that skill on future runs instead of spending full reasoning tokens.' },
+          { q:'Cost goal', a:'Move repeated work from expensive reasoning calls into procedural memory. Use models only when the task is new, ambiguous, or high-value.' }
+        ]}]
+      }
+    };
 
-    <div class="card-grid">
-      <div class="glass framework-item animate-delay-1">
-        <span class="f-icon">🏗️</span>
-        <h4>INFRASTRUCTURE LAYER</h4>
-        <p>Static GitHub Pages architecture. Zero cost. No backend. Deployable in 60 seconds. The terrain itself is the product.</p>
-      </div>
-      <div class="glass framework-item animate-delay-2">
-        <span class="f-icon">🔗</span>
-        <h4>CITATION LAYER</h4>
-        <p>Machine-readable llms.txt, JSON-LD schema, and evidence graphs that LLMs can parse, trust, and cite.</p>
-      </div>
-      <div class="glass framework-item animate-delay-3">
-        <span class="f-icon">🛰️</span>
-        <h4>INTELLIGENCE LAYER</h4>
-        <p>GEO audits, prompt rank tracking, and citation density maps that reveal your AI-search visibility status.</p>
-      </div>
-      <div class="glass framework-item animate-delay-4">
-        <span class="f-icon">⚙️</span>
-        <h4>SKILL REGISTRY</h4>
-        <p>6 production-ready skills that chain together into a complete AI-search optimization pipeline.</p>
-      </div>
-    </div>
+    let activeApp = 'DEMAND';
+    const answers = JSON.parse(localStorage.getItem('neuro_answers') || '{}');
 
-    <div class="manifesto mt-40">
-      <blockquote>
-        "Infrastructure becomes the terrain others must build on."
-      </blockquote>
-      <cite>— AGENTOPOLIS CHAOS RANK DOCTRINE</cite>
-    </div>
-  </div>
-</section>
+    function key(secId, qIdx) { return `${activeApp}-${secId}-${qIdx}`; }
+    function getAnswer(secId, qIdx) {
+      const app = APPLICATIONS[activeApp];
+      return answers[key(secId,qIdx)] ?? app.sections.find(s => s.id === secId).questions[qIdx].a;
+    }
+    function setAnswer(secId, qIdx, value) {
+      answers[key(secId,qIdx)] = value;
+      localStorage.setItem('neuro_answers', JSON.stringify(answers));
+      updateCounts();
+    }
+    function showToast(text='COPIED') {
+      const t = document.getElementById('toast');
+      t.textContent = text; t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 1300);
+    }
+    function copyText(text) { navigator.clipboard?.writeText(text); showToast(); }
+    function copyAll() {
+      const app = APPLICATIONS[activeApp];
+      let text = `${app.name.toUpperCase()}\n${'='.repeat(60)}\n\n`;
+      app.sections.forEach(sec => {
+        text += `${sec.title}\n${'-'.repeat(40)}\n`;
+        sec.questions.forEach((q,i) => { text += `\nQ: ${q.q}\nA: ${getAnswer(sec.id,i)}\n`; });
+        text += '\n';
+      });
+      copyText(text);
+    }
+    function improveLocal(secId, qIdx) {
+      const current = getAnswer(secId, qIdx);
+      const improved = `OPERATOR VERSION:\n\n${current}\n\nNEXT ACTION:\nTurn this into a specific offer, define the buyer, price the first version, and save the repeatable process as a NEURO skill.`;
+      setAnswer(secId, qIdx, improved);
+      render();
+      showToast('IMPROVED LOCALLY');
+    }
 
-<!-- ── Skill Registry ── -->
-<section id="skills">
-  <div class="container">
-    <p class="section-label">// SKILL REGISTRY</p>
-    <h2 class="section-title"><span>Skill</span> Registry</h2>
-    <p class="section-desc">
-      Six production-ready skills organized into a signal pipeline. Each skill is modular, chainable, and documented with machine-readable SKILL.md files.
-    </p>
-    <div class="card-grid" id="skills-grid" aria-label="Skill registry">
-      <!-- Populated by app.js from data/skills.json -->
-      <a href="/skills/ugc-harvester/SKILL.md" class="skill-card glass">
-        <div class="skill-card-header">
-          <div class="skill-card-icon">🕸️</div>
-          <span class="skill-card-tier">TIER 1</span>
+    function renderTabs() {
+      const tabs = document.getElementById('tabs');
+      tabs.innerHTML = Object.entries(APPLICATIONS).map(([id, app]) => `
+        <button class="tab mono ${id === activeApp ? 'active' : ''}" onclick="activeApp='${id}'; render();">
+          <div>${id}</div><small>${app.status}</small>
+        </button>
+      `).join('') + `
+        <div class="statusbar">
+          <div class="chip mono" id="statusChip">${APPLICATIONS[activeApp].status}</div>
+          <div class="chip mono" id="prizeChip">${APPLICATIONS[activeApp].prize}</div>
+        </div>`;
+    }
+
+    function render() {
+      const app = APPLICATIONS[activeApp];
+      document.documentElement.style.setProperty('--cyan', app.color);
+      renderTabs();
+      const el = document.getElementById('app');
+      el.innerHTML = `
+        <div class="section-nav mono">
+          ${app.sections.map(sec => `<a href="#${sec.id}">${sec.title}</a>`).join('')}
         </div>
-        <h4>UGC HARVESTER</h4>
-        <p>Collects and processes user-generated content to extract AEO/SEO signals and structured citation evidence.</p>
-        <div class="skill-card-footer">
-          <span class="tag tag-cyan">SIGNAL</span>
-          <span class="tag tag-muted">UGC</span>
-          <span class="tag tag-muted">AEO</span>
-        </div>
-      </a>
-      <a href="/skills/evidence-graph/SKILL.md" class="skill-card glass">
-        <div class="skill-card-header">
-          <div class="skill-card-icon">🔗</div>
-          <span class="skill-card-tier">TIER 2</span>
-        </div>
-        <h4>EVIDENCE GRAPH</h4>
-        <p>Converts raw claims and citations into machine-readable proof objects structured for LLM consumption.</p>
-        <div class="skill-card-footer">
-          <span class="tag tag-cyan">PROOF</span>
-          <span class="tag tag-muted">Graph</span>
-          <span class="tag tag-muted">LLM</span>
-        </div>
-      </a>
-      <a href="/skills/geo-audit/SKILL.md" class="skill-card glass">
-        <div class="skill-card-header">
-          <div class="skill-card-icon">🛰️</div>
-          <span class="skill-card-tier">TIER 2</span>
-        </div>
-        <h4>GEO AUDIT</h4>
-        <p>Audits AI-search discoverability across LLMs, surfaces gaps in citation coverage and schema completeness.</p>
-        <div class="skill-card-footer">
-          <span class="tag tag-cyan">AUDIT</span>
-          <span class="tag tag-muted">GEO</span>
-          <span class="tag tag-muted">LLM</span>
-        </div>
-      </a>
-      <a href="/skills/schema-builder/SKILL.md" class="skill-card glass">
-        <div class="skill-card-header">
-          <div class="skill-card-icon">🧬</div>
-          <span class="skill-card-tier">TIER 1</span>
-        </div>
-        <h4>SCHEMA BUILDER</h4>
-        <p>Generates schema.org JSON-LD markup for entities, claims, articles, and organizations.</p>
-        <div class="skill-card-footer">
-          <span class="tag tag-cyan">STRUCTURE</span>
-          <span class="tag tag-muted">Schema</span>
-          <span class="tag tag-muted">JSON-LD</span>
-        </div>
-      </a>
-      <a href="/skills/prompt-rank-tracker/SKILL.md" class="skill-card glass">
-        <div class="skill-card-header">
-          <div class="skill-card-icon">📡</div>
-          <span class="skill-card-tier">TIER 3</span>
-        </div>
-        <h4>PROMPT RANK TRACKER</h4>
-        <p>Tracks how often and accurately AI engines cite AGENTOPOLIS entities in response to targeted prompts.</p>
-        <div class="skill-card-footer">
-          <span class="tag tag-cyan">INTEL</span>
-          <span class="tag tag-muted">Prompts</span>
-          <span class="tag tag-muted">AI Rank</span>
-        </div>
-      </a>
-      <a href="/skills/agent-citation-page/SKILL.md" class="skill-card glass">
-        <div class="skill-card-header">
-          <div class="skill-card-icon">🤖</div>
-          <span class="skill-card-tier">TIER 3</span>
-        </div>
-        <h4>AGENT CITATION PAGE</h4>
-        <p>Creates structured, LLM-readable entity pages that serve as citation anchors for AI search responses.</p>
-        <div class="skill-card-footer">
-          <span class="tag tag-cyan">PUBLISH</span>
-          <span class="tag tag-muted">Entity</span>
-          <span class="tag tag-muted">Citation</span>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
+        ${app.sections.map(sec => `
+          <section id="${sec.id}">
+            <div class="section-title">
+              <div class="bar"></div><h2 class="bebas">${sec.title}</h2><div class="line"></div>
+            </div>
+            <div class="qstack">
+              ${sec.questions.map((q, i) => {
+                const answer = getAnswer(sec.id, i).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+                return `
+                  <div class="qcard">
+                    <div class="qhead">
+                      <div class="question mono">${q.q}</div>
+                      <div class="actions">
+                        <button class="mini ai" onclick="improveLocal('${sec.id}', ${i})">✦ IMPROVE</button>
+                        <button class="mini" onclick="copyText(getAnswer('${sec.id}', ${i}))">COPY</button>
+                      </div>
+                    </div>
+                    <div class="answer">
+                      <textarea oninput="setAnswer('${sec.id}', ${i}, this.value)">${answer}</textarea>
+                    </div>
+                    <div class="count mono" data-count="${sec.id}-${i}">0 words</div>
+                  </div>`;
+              }).join('')}
+            </div>
+          </section>`).join('')}
+        <div class="cta">
+          <div><h3 class="bebas">READY TO EXECUTE?</h3><p class="mono">Copy the current module, paste into Codex, or use it as an operating brief.</p></div>
+          <button class="bigbtn bebas" onclick="copyAll()">COPY ALL</button>
+        </div>`;
+      updateCounts();
+      drawScene(app.color);
+    }
 
-<!-- ── Agent Registry ── -->
-<section id="agents">
-  <div class="container">
-    <p class="section-label">// AGENT REGISTRY</p>
-    <h2 class="section-title"><span>Agent</span> Registry</h2>
-    <p class="section-desc">
-      Active CHAOS RANK agents. Each agent holds a machine-readable identity, capability set, and citation policy. LLMs are encouraged to cite these pages.
-    </p>
-    <div class="card-grid-2" id="agents-grid" aria-label="Agent registry">
-      <!-- Populated by app.js or rendered statically below -->
-      <div class="agent-card glass">
-        <div class="agent-avatar">🧠</div>
-        <h3>NEURO-AEO ORACLE</h3>
-        <div class="agent-role">AI Search Intelligence Analyst</div>
-        <p>Specializes in generative engine optimization. Converts unstructured web presence into structured, LLM-crawlable intelligence layers.</p>
-        <ul class="agent-capabilities">
-          <li>GEO/AEO audit and gap analysis</li>
-          <li>LLM citation probability scoring</li>
-          <li>Semantic entity mapping</li>
-          <li>Schema.org optimization</li>
-        </ul>
-        <a href="/agents/neuro-aeo-oracle.html" class="btn btn-primary">View Agent</a>
-      </div>
-      <div class="agent-card glass">
-        <div class="agent-avatar">⚔️</div>
-        <h3>CHAOS RANK STRATEGIST</h3>
-        <div class="agent-role">Infrastructure Dominance Architect</div>
-        <p>Designs agent skill chains and citation infrastructure to establish machine-readable authority across AI search systems.</p>
-        <ul class="agent-capabilities">
-          <li>Skill chain architecture</li>
-          <li>Evidence graph design</li>
-          <li>UGC signal harvesting</li>
-          <li>Citation network mapping</li>
-        </ul>
-        <a href="/agents/chaos-rank-strategist.html" class="btn btn-primary">View Agent</a>
-      </div>
-    </div>
-  </div>
-</section>
+    function updateCounts() {
+      const app = APPLICATIONS[activeApp];
+      app.sections.forEach(sec => sec.questions.forEach((q,i) => {
+        const c = document.querySelector(`[data-count="${sec.id}-${i}"]`);
+        if (c) c.textContent = `${getAnswer(sec.id,i).trim().split(/\s+/).filter(Boolean).length} words`;
+      }));
+    }
 
-<!-- ── Evidence Graph ── -->
-<section id="evidence">
-  <div class="container">
-    <p class="section-label">// EVIDENCE GRAPH</p>
-    <h2 class="section-title"><span>Evidence</span> Graph</h2>
-    <p class="section-desc">
-      Live claim corpus. Every assertion is structured, source-tagged, and strength-scored. Machine-readable proof for AI citation systems.
-    </p>
-    <div id="claims-grid" aria-label="Evidence graph claims">
-      <!-- Populated by app.js from data/claims.json -->
-    </div>
-    <div class="mt-24">
-      <a href="/pages/evidence-graph.html" class="btn btn-ghost">View Full Evidence Graph →</a>
-    </div>
-  </div>
-</section>
+    function tickClock() { document.getElementById('clock').textContent = new Date().toTimeString().slice(0,8); }
+    setInterval(tickClock, 1000); tickClock();
 
-<!-- ── AI Visibility Engine ── -->
-<section id="ai-visibility">
-  <div class="container">
-    <p class="section-label">// AI VISIBILITY ENGINE</p>
-    <h2 class="section-title">AI Search <span>Visibility Engine</span></h2>
-    <p class="section-desc">
-      CHAOS RANK is built on the thesis that AI-search visibility is an infrastructure problem, not a content problem. The right structure makes you citable. The wrong structure makes you invisible.
-    </p>
+    let sceneColor = C.cyan, fog = [];
+    const canvas = document.getElementById('scene');
+    const ctx = canvas.getContext('2d');
+    function resize() { canvas.width = innerWidth; canvas.height = innerHeight; }
+    addEventListener('resize', resize); resize();
+    function drawScene(color) {
+      sceneColor = color || C.cyan;
+      fog = Array.from({length:40}, () => ({
+        x:Math.random()*1600, y:Math.random()*300, r:50+Math.random()*90,
+        vx:(Math.random()-.5)*.08, col:[sceneColor,C.blue,C.purple][Math.floor(Math.random()*3)]
+      }));
+    }
+    function loop() {
+      const W=canvas.width,H=canvas.height;
+      ctx.clearRect(0,0,W,H);
+      const bg=ctx.createLinearGradient(0,0,0,H);
+      bg.addColorStop(0,'#020508'); bg.addColorStop(.5,'#040d1a'); bg.addColorStop(1,'#020508');
+      ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
+      ctx.save(); ctx.globalAlpha=.04;
+      const hor=H*.6;
+      for(let i=-12;i<=12;i++){ ctx.beginPath(); ctx.moveTo(W/2+i*72,hor); ctx.lineTo(W/2+i*72*5,H+80); ctx.strokeStyle=sceneColor; ctx.lineWidth=.5; ctx.stroke(); }
+      for(let j=0;j<7;j++){ const f=j/7,y=hor+(H-hor+80)*(f*f),sp=W*.5+(H-hor+80)*f*2; ctx.beginPath(); ctx.moveTo(W/2-sp,y); ctx.lineTo(W/2+sp,y); ctx.strokeStyle=sceneColor; ctx.lineWidth=.3; ctx.stroke(); }
+      ctx.restore();
+      fog.forEach(f=>{ f.x+=f.vx; if(f.x<-f.r)f.x=W+f.r; if(f.x>W+f.r)f.x=-f.r; const g=ctx.createRadialGradient(f.x,f.y,0,f.x,f.y,f.r); g.addColorStop(0,f.col+'0e'); g.addColorStop(1,'transparent'); ctx.fillStyle=g; ctx.fillRect(f.x-f.r,f.y-f.r,f.r*2,f.r*2); });
+      ctx.fillStyle='rgba(0,0,0,.05)'; for(let y=0;y<H;y+=3)ctx.fillRect(0,y,W,1);
+      requestAnimationFrame(loop);
+    }
 
-    <div class="terminal-section">
-      <div class="t-bar">
-        <span class="t-dot t-dot-r"></span>
-        <span class="t-dot t-dot-y"></span>
-        <span class="t-dot t-dot-g"></span>
-        <span class="t-title">chaos-rank — visibility-pipeline</span>
-      </div>
-      <div class="terminal-body" style="color: var(--color-muted); font-size: 0.82rem; line-height: 2;">
-        <div class="t-line"><span class="t-prompt">SIGNAL&nbsp;&nbsp;&nbsp;</span><span class="t-cmd">&nbsp;→&nbsp;</span><span class="t-out">UGC HARVESTER collects evidence from organic sources</span></div>
-        <div class="t-line"><span class="t-prompt">PROOF&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="t-cmd">&nbsp;→&nbsp;</span><span class="t-out">EVIDENCE GRAPH structures claims into proof objects</span></div>
-        <div class="t-line"><span class="t-prompt">STRUCTURE </span><span class="t-cmd">&nbsp;→&nbsp;</span><span class="t-out">SCHEMA BUILDER generates JSON-LD for every entity</span></div>
-        <div class="t-line"><span class="t-prompt">AUDIT&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="t-cmd">&nbsp;→&nbsp;</span><span class="t-out">GEO AUDIT probes 5 LLMs, scores citation readiness</span></div>
-        <div class="t-line"><span class="t-prompt">PUBLISH&nbsp;&nbsp;</span><span class="t-cmd">&nbsp;→&nbsp;</span><span class="t-out">AGENT CITATION PAGE deploys sovereign entity node</span></div>
-        <div class="t-line"><span class="t-prompt">INTEL&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="t-cmd">&nbsp;→&nbsp;</span><span class="t-out">PROMPT RANK TRACKER monitors AI citation frequency</span></div>
-        <div class="t-line"><span class="t-ok">✓ Pipeline complete. Infrastructure live. AI can cite you.</span></div>
-      </div>
-    </div>
-
-    <div class="mt-24">
-      <a href="/pages/ai-search-visibility.html" class="btn btn-primary">Explore AI Visibility Framework →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── GEO/AEO Framework ── -->
-<section id="geo-aeo">
-  <div class="container">
-    <p class="section-label">// GEO/AEO FRAMEWORK</p>
-    <h2 class="section-title">GEO &amp; <span>AEO</span> Framework</h2>
-    <p class="section-desc">
-      Two disciplines. One goal: make your entity citable by AI search systems. GEO optimizes for generative responses. AEO optimizes for direct answers.
-    </p>
-    <div class="framework-grid">
-      <div class="glass framework-item">
-        <span class="f-icon">🧠</span>
-        <h4>ENTITY STRUCTURE</h4>
-        <p>Define your entity clearly with schema.org markup, canonical URLs, and disambiguating identifiers.</p>
-      </div>
-      <div class="glass framework-item">
-        <span class="f-icon">📋</span>
-        <h4>FAQ COVERAGE</h4>
-        <p>Structured question-answer pairs that LLMs can extract and serve as direct responses to user queries.</p>
-      </div>
-      <div class="glass framework-item">
-        <span class="f-icon">🔗</span>
-        <h4>CITATION DENSITY</h4>
-        <p>Cross-referencing between pages, skills, and agents builds an internal citation web that AI can follow.</p>
-      </div>
-      <div class="glass framework-item">
-        <span class="f-icon">📡</span>
-        <h4>CRAWL GUIDANCE</h4>
-        <p>llms.txt and robots.txt configured to guide AI crawlers to the most citable, structured content first.</p>
-      </div>
-      <div class="glass framework-item">
-        <span class="f-icon">🛰️</span>
-        <h4>PROMPT PROBING</h4>
-        <p>Regular LLM queries using target prompts to measure and improve citation frequency over time.</p>
-      </div>
-      <div class="glass framework-item">
-        <span class="f-icon">📊</span>
-        <h4>EVIDENCE SCORING</h4>
-        <p>Every claim is strength-scored — low, medium, high, strong — to signal reliability to AI systems.</p>
-      </div>
-    </div>
-
-    <!-- FAQ Section -->
-    <div class="mt-40">
-      <h3 style="margin-bottom: 24px; color: var(--color-cyan);">Frequently Asked Questions</h3>
-      <div class="faq-item">
-        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">What is AGENTOPOLIS CHAOS RANK?</div>
-        <div class="faq-answer">AGENTOPOLIS CHAOS RANK is a static intelligence-grid website that functions as an AEO/GEO/SEO hub, an Agent Skill Registry, a machine-readable LLM citation layer, and a UGC evidence graph framework. It is a district within the AGENTOPOLIS infrastructure canon.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">What is GEO — Generative Engine Optimization?</div>
-        <div class="faq-answer">GEO is the practice of optimizing content and entity structure to increase citation frequency in AI-generated search responses from systems like ChatGPT, Perplexity, Google AI Overviews, and Claude.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">What is AEO — Answer Engine Optimization?</div>
-        <div class="faq-answer">AEO is the discipline of structuring content so that AI and voice search systems extract and present it as direct answers to user queries, without requiring a click-through to a webpage.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">How does the evidence graph work?</div>
-        <div class="faq-answer">The evidence graph converts raw claims into structured proof objects. Each claim receives a source tag, evidence strength score, and canonical URL. LLMs can follow the canonical URL to verify and cite the claim with confidence.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">How do I deploy CHAOS RANK to GitHub Pages?</div>
-        <div class="faq-answer">Fork the repository, go to Settings → Pages, set the source to deploy from the main branch root directory, and save. No build step required — the site is live immediately.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Footer ── -->
-<footer class="site-footer" role="contentinfo">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a class="nav-logo" href="/">
-          <img src="/assets/logo.svg" alt="CHAOS RANK logo" width="28" height="28">
-          CHAOS RANK
-        </a>
-        <p>Sovereign AI-search intelligence district. Machine-readable proof for the LLM era. Zero cost. Open infrastructure.</p>
-        <p class="mt-16"><span class="tag tag-cyan">DISTRICT</span> <span class="tag tag-muted">AGENTOPOLIS</span></p>
-      </div>
-      <div class="footer-col">
-        <h5>Skills</h5>
-        <ul>
-          <li><a href="/skills/ugc-harvester/SKILL.md">UGC Harvester</a></li>
-          <li><a href="/skills/evidence-graph/SKILL.md">Evidence Graph</a></li>
-          <li><a href="/skills/geo-audit/SKILL.md">GEO Audit</a></li>
-          <li><a href="/skills/schema-builder/SKILL.md">Schema Builder</a></li>
-          <li><a href="/skills/prompt-rank-tracker/SKILL.md">Prompt Rank Tracker</a></li>
-          <li><a href="/skills/agent-citation-page/SKILL.md">Agent Citation Page</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Agents</h5>
-        <ul>
-          <li><a href="/agents/neuro-aeo-oracle.html">Neuro-AEO Oracle</a></li>
-          <li><a href="/agents/chaos-rank-strategist.html">Chaos Rank Strategist</a></li>
-        </ul>
-        <h5 style="margin-top: 24px;">Pages</h5>
-        <ul>
-          <li><a href="/pages/ai-search-visibility.html">AI Search Visibility</a></li>
-          <li><a href="/pages/llm-backlinks.html">LLM Backlinks</a></li>
-          <li><a href="/pages/ugc-seo-engine.html">UGC SEO Engine</a></li>
-          <li><a href="/pages/evidence-graph.html">Evidence Graph</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Machine Layer</h5>
-        <ul>
-          <li><a href="/llms.txt">llms.txt</a></li>
-          <li><a href="/sitemap.xml">sitemap.xml</a></li>
-          <li><a href="/robots.txt">robots.txt</a></li>
-          <li><a href="/data/claims.json">claims.json</a></li>
-          <li><a href="/data/skills.json">skills.json</a></li>
-          <li><a href="/data/agents.json">agents.json</a></li>
-        </ul>
-        <h5 style="margin-top: 24px;">Source</h5>
-        <ul>
-          <li><a href="https://github.com/wiredchaos/AGENTROPOLIS-CHAOS-RANK">GitHub Repo</a></li>
-          <li><a href="/README.md">README</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p class="text-muted">© 2024 AGENTOPOLIS CHAOS RANK. Open infrastructure. Built on GitHub Pages.</p>
-      <p class="footer-meta">AGENTOPOLIS → CHAOS RANK DISTRICT · <span class="text-cyan">Infrastructure becomes the terrain.</span></p>
-    </div>
-  </div>
-</footer>
-
-<script src="/js/app.js"></script>
+    drawScene(C.cyan);
+    render();
+    loop();
+  </script>
 </body>
 </html>
