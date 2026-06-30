@@ -3,303 +3,101 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NEURO Opportunity Center</title>
+  <title>AGENTROPOLIS CHAOS RANK v2 — Opportunity Skill Factory</title>
+  <meta name="description" content="AGENTROPOLIS CHAOS RANK v2 turns demand signals into offers, content, services, videos, hackathon opportunities, and reusable Hermes skills." />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&display=swap');
-
-    :root {
-      --void:#020508; --deep:#040d1a; --surface:#060f1e; --card:#081424;
-      --border:#0d2035; --border2:#132840; --cyan:#00ffc8; --gold:#f0cc6a;
-      --pink:#ff2d78; --orange:#ff6b35; --purple:#9d4edd; --blue:#00b4ff;
-      --green:#39ff14; --white:#e8f4f0; --dim:#2a4060; --muted:#0d2035;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { background: var(--void); overflow-x: hidden; }
-    body { color: var(--dim); font-family: 'Rajdhani', sans-serif; min-height: 100vh; }
-    ::-webkit-scrollbar { width: 3px; background: var(--void); }
-    ::-webkit-scrollbar-thumb { background: var(--border2); }
-
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.25} }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-    @keyframes boot { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
-    @keyframes flicker { 0%,88%,90%,94%,100%{opacity:1} 89%,92%{opacity:.1} }
-    @keyframes scandown { 0%{top:0} 100%{top:100vh} }
-    @keyframes spin { to{transform:rotate(360deg)} }
-
-    .mono { font-family: 'Share Tech Mono', monospace; }
-    .bebas { font-family: 'Bebas Neue', sans-serif; }
-    .root { position: relative; min-height: 100vh; overflow: hidden; background: var(--void); }
-    #scene { position: fixed; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; }
-    .scanlines { position: fixed; inset:0; z-index:1; pointer-events:none; background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.05) 2px,rgba(0,0,0,.05) 4px); }
-    .scanbar { position: fixed; left:0; right:0; height:1.5px; z-index:2; pointer-events:none; background:linear-gradient(90deg,transparent,var(--cyan),transparent); opacity:.25; animation:scandown 9s linear infinite; }
-    .wrap { position: relative; z-index: 3; max-width: 1440px; margin: 0 auto; padding: 0 24px 48px; }
-
-    header { border-bottom:1px solid var(--border); padding:13px 0; display:flex; justify-content:space-between; align-items:center; animation:boot .5s ease both; gap:16px; }
-    .brand-row { display:flex; align-items:baseline; gap:8px; }
-    .brand-neuro { font-size:22px; color:var(--cyan); letter-spacing:.35em; line-height:1; animation:flicker 9s infinite; text-shadow:0 0 20px rgba(0,255,200,.38); }
-    .brand-title { font-size:22px; color:var(--gold); letter-spacing:.25em; line-height:1; text-shadow:0 0 16px rgba(240,204,106,.25); }
-    .subline { font-size:7px; color:var(--muted); letter-spacing:.2em; margin-top:4px; }
-    .time { font-size:7px; color:var(--muted); }
-    .copy-all { background:rgba(240,204,106,.08); border:1px solid rgba(240,204,106,.35); border-radius:2px; padding:6px 12px; color:var(--gold); font-size:7px; cursor:pointer; }
-
-    .tabs { display:flex; gap:2px; padding:9px 0; border-bottom:1px solid rgba(13,32,53,.45); animation:boot .5s .1s ease both; opacity:0; flex-wrap:wrap; }
-    .tab { background:transparent; border:1px solid var(--border); border-radius:2px; padding:7px 20px; color:var(--muted); font-size:8px; letter-spacing:.15em; cursor:pointer; transition:all .15s; }
-    .tab:hover { color:var(--white); border-color:rgba(0,255,200,.35); }
-    .tab.active { background:rgba(0,255,200,.06); border-color:rgba(0,255,200,.45); color:var(--cyan); }
-    .tab small { display:block; font-size:6px; margin-top:2px; color:inherit; opacity:.75; }
-
-    .statusbar { margin-left:auto; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
-    .chip { padding:4px 10px; background:rgba(0,255,200,.06); border:1px solid rgba(0,255,200,.25); border-radius:2px; color:var(--cyan); font-size:7px; }
-
-    main { padding-top:16px; animation:boot .5s .15s ease both; opacity:0; }
-    .section-nav { display:flex; gap:5px; margin-bottom:14px; flex-wrap:wrap; }
-    .section-nav a { font-size:7px; color:var(--cyan); padding:3px 10px; background:rgba(0,255,200,.04); border:1px solid rgba(0,255,200,.16); border-radius:2px; text-decoration:none; }
-    section { margin-bottom:24px; }
-    .section-title { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
-    .bar { width:3px; height:18px; background:var(--cyan); border-radius:2px; }
-    .section-title h2 { font-size:16px; color:var(--cyan); letter-spacing:.2em; font-weight:400; }
-    .line { flex:1; height:1px; background:linear-gradient(90deg,rgba(0,255,200,.25),transparent); }
-
-    .qstack { display:flex; flex-direction:column; gap:10px; }
-    .qcard { background:rgba(0,255,200,.025); border:1px solid rgba(0,255,200,.13); border-radius:3px; overflow:hidden; }
-    .qhead { padding:10px 16px; border-bottom:1px solid rgba(0,255,200,.08); display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
-    .question { font-size:8px; color:var(--cyan); line-height:1.6; flex:1; }
-    .actions { display:flex; gap:6px; flex-shrink:0; }
-    button { font-family:'Share Tech Mono', monospace; }
-    .mini { background:transparent; border:1px solid rgba(0,255,200,.25); border-radius:2px; padding:3px 10px; color:var(--cyan); font-size:7px; cursor:pointer; transition:all .15s; }
-    .mini:hover { filter:brightness(1.25); }
-    .mini.ai { color:var(--purple); background:rgba(157,78,221,.06); border-color:rgba(157,78,221,.35); }
-    .mini.copied { color:var(--green); border-color:rgba(57,255,20,.45); background:rgba(57,255,20,.06); }
-    .answer { padding:10px 16px; }
-    textarea { width:100%; background:transparent; border:none; color:#7a9aaa; font-family:'Share Tech Mono', monospace; font-size:9px; line-height:1.85; resize:vertical; min-height:120px; outline:none; }
-    .count { padding:4px 16px; border-top:1px solid rgba(0,255,200,.06); display:flex; justify-content:flex-end; font-size:6px; color:var(--muted); }
-
-    .cta { background:linear-gradient(135deg,rgba(0,255,200,.05),var(--card)); border:1px solid rgba(0,255,200,.25); border-radius:3px; padding:22px; display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; gap:16px; }
-    .cta h3 { font-size:22px; color:var(--cyan); font-weight:400; margin-bottom:4px; }
-    .cta p { font-size:8px; color:var(--dim); }
-    .bigbtn { background:rgba(0,255,200,.08); border:1px solid var(--cyan); border-radius:2px; padding:10px 22px; color:var(--cyan); font-size:16px; letter-spacing:.18em; cursor:pointer; }
-
-    .toast { position:fixed; bottom:18px; right:18px; z-index:10; background:rgba(0,255,200,.08); border:1px solid rgba(0,255,200,.45); color:var(--cyan); padding:10px 14px; font-size:8px; opacity:0; transform:translateY(8px); transition:all .2s; }
-    .toast.show { opacity:1; transform:none; }
-
-    @media (max-width: 840px) {
-      header, .cta { flex-direction:column; align-items:flex-start; }
-      .statusbar { margin-left:0; }
-      .brand-title, .brand-neuro { font-size:18px; }
-      .qhead { flex-direction:column; }
-    }
+    :root{--void:#020508;--deep:#040d1a;--surface:#060f1e;--card:#081424;--border:#0d2035;--border2:#132840;--cyan:#00ffc8;--gold:#f0cc6a;--pink:#ff2d78;--orange:#ff6b35;--purple:#9d4edd;--blue:#00b4ff;--green:#39ff14;--white:#e8f4f0;--dim:#2a4060;--muted:#0d2035;--active:#00ffc8}
+    *{box-sizing:border-box;margin:0;padding:0}html,body{background:var(--void);overflow-x:hidden}body{color:var(--dim);font-family:'Rajdhani',sans-serif;min-height:100vh}::-webkit-scrollbar{width:3px;background:var(--void)}::-webkit-scrollbar-thumb{background:var(--border2)}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}@keyframes boot{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}@keyframes flicker{0%,88%,90%,94%,100%{opacity:1}89%,92%{opacity:.1}}@keyframes scandown{0%{top:0}100%{top:100vh}}
+    .mono{font-family:'Share Tech Mono',monospace}.bebas{font-family:'Bebas Neue',sans-serif}.root{position:relative;min-height:100vh;overflow:hidden;background:var(--void)}#scene{position:fixed;inset:0;z-index:0;width:100%;height:100%;pointer-events:none}.scanlines{position:fixed;inset:0;z-index:1;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.05) 2px,rgba(0,0,0,.05) 4px)}.scanbar{position:fixed;left:0;right:0;height:1.5px;z-index:2;pointer-events:none;background:linear-gradient(90deg,transparent,var(--active),transparent);opacity:.28;animation:scandown 9s linear infinite}.wrap{position:relative;z-index:3;max-width:1480px;margin:0 auto;padding:0 24px 48px}
+    header{border-bottom:1px solid var(--border);padding:13px 0;display:flex;justify-content:space-between;align-items:center;animation:boot .5s ease both;gap:16px}.brand-row{display:flex;align-items:baseline;gap:8px}.brand-neuro{font-size:22px;color:var(--cyan);letter-spacing:.35em;line-height:1;animation:flicker 9s infinite;text-shadow:0 0 20px rgba(0,255,200,.38)}.brand-title{font-size:22px;color:var(--active);letter-spacing:.22em;line-height:1;text-shadow:0 0 16px color-mix(in srgb,var(--active) 35%,transparent)}.subline{font-size:7px;color:var(--muted);letter-spacing:.2em;margin-top:4px}.top-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.time{font-size:7px;color:var(--muted)}button{font-family:'Share Tech Mono',monospace}.copy-all{background:color-mix(in srgb,var(--active) 8%,transparent);border:1px solid color-mix(in srgb,var(--active) 35%,transparent);border-radius:2px;padding:6px 12px;color:var(--active);font-size:7px;cursor:pointer}
+    .grid{display:grid;grid-template-columns:250px 1fr;gap:14px;padding-top:14px;animation:boot .5s .1s ease both;opacity:0}.sidebar{position:sticky;top:0;align-self:start;background:rgba(8,20,36,.82);border:1px solid var(--border2);border-radius:3px;padding:12px;backdrop-filter:blur(8px)}.side-title{font-size:7px;color:var(--muted);letter-spacing:.18em;margin-bottom:9px}.tab{width:100%;text-align:left;background:transparent;border:1px solid var(--border);border-radius:2px;padding:9px 10px;color:var(--muted);font-size:8px;letter-spacing:.08em;cursor:pointer;transition:all .15s;margin-bottom:5px}.tab:hover{color:var(--white);border-color:color-mix(in srgb,var(--active) 45%,transparent)}.tab.active{background:color-mix(in srgb,var(--active) 8%,transparent);border-color:color-mix(in srgb,var(--active) 55%,transparent);color:var(--active)}.tab small{display:block;font-size:6px;margin-top:3px;color:inherit;opacity:.75;letter-spacing:.05em}.chip{display:inline-flex;align-items:center;gap:4px;padding:4px 8px;background:color-mix(in srgb,var(--active) 7%,transparent);border:1px solid color-mix(in srgb,var(--active) 28%,transparent);border-radius:2px;color:var(--active);font-size:7px;margin:0 5px 5px 0}.module-head{background:linear-gradient(135deg,color-mix(in srgb,var(--active) 8%,transparent),rgba(8,20,36,.9));border:1px solid color-mix(in srgb,var(--active) 30%,transparent);border-radius:3px;padding:18px;margin-bottom:14px}.module-kicker{font-size:7px;color:var(--active);letter-spacing:.22em;margin-bottom:6px}.module-head h1{font-size:28px;color:var(--white);letter-spacing:.08em;font-weight:400}.module-head p{font-size:11px;color:#4e708a;line-height:1.6;margin-top:8px;max-width:900px}.flow{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}.flow span{font-size:7px;color:var(--active);border:1px solid color-mix(in srgb,var(--active) 24%,transparent);background:color-mix(in srgb,var(--active) 5%,transparent);padding:4px 8px;border-radius:2px}
+    section{margin-bottom:22px}.section-title{display:flex;align-items:center;gap:12px;margin-bottom:12px}.bar{width:3px;height:18px;background:var(--active);border-radius:2px}.section-title h2{font-size:16px;color:var(--active);letter-spacing:.2em;font-weight:400}.line{flex:1;height:1px;background:linear-gradient(90deg,color-mix(in srgb,var(--active) 28%,transparent),transparent)}.qstack{display:grid;grid-template-columns:1fr 1fr;gap:10px}.qcard{background:color-mix(in srgb,var(--active) 2.5%,rgba(8,20,36,.7));border:1px solid color-mix(in srgb,var(--active) 14%,transparent);border-radius:3px;overflow:hidden}.qhead{padding:10px 14px;border-bottom:1px solid color-mix(in srgb,var(--active) 9%,transparent);display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.question{font-size:8px;color:var(--active);line-height:1.6;flex:1}.actions{display:flex;gap:6px;flex-shrink:0}.mini{background:transparent;border:1px solid color-mix(in srgb,var(--active) 26%,transparent);border-radius:2px;padding:3px 8px;color:var(--active);font-size:7px;cursor:pointer;transition:all .15s}.mini:hover{filter:brightness(1.25)}.mini.ai{color:var(--purple);background:rgba(157,78,221,.06);border-color:rgba(157,78,221,.35)}.answer{padding:10px 14px}textarea{width:100%;background:transparent;border:none;color:#7a9aaa;font-family:'Share Tech Mono',monospace;font-size:9px;line-height:1.75;resize:vertical;min-height:135px;outline:none}.count{padding:4px 14px;border-top:1px solid color-mix(in srgb,var(--active) 7%,transparent);display:flex;justify-content:flex-end;font-size:6px;color:var(--muted)}.full{grid-column:1/-1}.dashboard{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}.metric{background:rgba(8,20,36,.78);border:1px solid var(--border2);padding:10px;border-radius:3px}.metric label{display:block;font-size:6px;color:var(--muted);letter-spacing:.16em;margin-bottom:5px}.metric strong{font-size:18px;color:var(--active);font-weight:400}.cta{background:linear-gradient(135deg,color-mix(in srgb,var(--active) 6%,transparent),var(--card));border:1px solid color-mix(in srgb,var(--active) 28%,transparent);border-radius:3px;padding:18px;display:flex;justify-content:space-between;align-items:center;margin-top:16px;gap:16px}.cta h3{font-size:22px;color:var(--active);font-weight:400;margin-bottom:4px}.cta p{font-size:8px;color:var(--dim)}.bigbtn{background:color-mix(in srgb,var(--active) 9%,transparent);border:1px solid var(--active);border-radius:2px;padding:10px 20px;color:var(--active);font-size:15px;letter-spacing:.18em;cursor:pointer}.toast{position:fixed;bottom:18px;right:18px;z-index:10;background:color-mix(in srgb,var(--active) 9%,rgba(0,0,0,.8));border:1px solid color-mix(in srgb,var(--active) 45%,transparent);color:var(--active);padding:10px 14px;font-size:8px;opacity:0;transform:translateY(8px);transition:all .2s}.toast.show{opacity:1;transform:none}
+    @media(max-width:980px){.grid{grid-template-columns:1fr}.sidebar{position:relative}.qstack,.dashboard{grid-template-columns:1fr}header,.cta{flex-direction:column;align-items:flex-start}.brand-title,.brand-neuro{font-size:18px}}
   </style>
 </head>
 <body>
-  <div class="root">
-    <canvas id="scene"></canvas>
-    <div class="scanlines"></div>
-    <div class="scanbar"></div>
-
-    <div class="wrap">
-      <header>
-        <div>
-          <div class="brand-row">
-            <div class="bebas brand-neuro">NEURO</div>
-            <div class="bebas brand-title">OPPORTUNITY CENTER</div>
-          </div>
-          <div class="mono subline">EXTRACT. OFFER. AUTOMATE. LEARN. // NO COMMERCIAL BRANDING</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-          <span class="mono time" id="clock">00:00:00</span>
-          <button class="copy-all mono" onclick="copyAll()">COPY ALL</button>
-        </div>
-      </header>
-
-      <nav class="tabs" id="tabs"></nav>
-      <main id="app"></main>
-    </div>
-  </div>
-  <div class="toast mono" id="toast">COPIED</div>
-
-  <script>
-    const C = {
-      cyan:'#00ffc8', gold:'#f0cc6a', pink:'#ff2d78', orange:'#ff6b35',
-      purple:'#9d4edd', blue:'#00b4ff', green:'#39ff14'
-    };
-
-    const APPLICATIONS = {
-      DEMAND: {
-        name: 'Demand Extractor', status: 'READY', prize: 'Find what people want', color: C.cyan,
-        sections: [{ id:'extract', title:'EXTRACT', questions:[
-          { q:'What are people asking for?', a:'Paste screenshots, comments, posts, support tickets, reviews, or niche signals here.' },
-          { q:'Who wants this?', a:'Identify the buyer: creator, agency, local business, SaaS team, coach, ecommerce owner, founder, or operator.' },
-          { q:'What problem are they trying to solve?', a:'Extract the pain, desired outcome, urgency, current workaround, and reason they would pay.' },
-          { q:'What should NEURO create?', a:'Turn the signal into an offer: automation, service, template, content system, lead magnet, SaaS feature, or done-for-you workflow.' },
-          { q:'How does this make money?', a:'Recommend pricing: free lead magnet, $29/month tool, $97 template, $500 setup, $1,500/month retainer, or enterprise license.' }
-        ]}]
-      },
-      OFFER: {
-        name: 'Offer Builder', status: 'READY', prize: 'Convert demand into revenue', color: C.gold,
-        sections: [{ id:'offer', title:'OFFER', questions:[
-          { q:'Offer name', a:'NEURO Opportunity Engine' },
-          { q:'One-line promise', a:'Find what people want, turn it into an offer, and automate the path to revenue.' },
-          { q:'Target customer', a:'Solo creators, agencies, local businesses, SaaS founders, and operators who need more leads, content, sales, or automation.' },
-          { q:'Core workflow', a:'Input signal → extract demand → score opportunity → build offer → generate content → create outreach → write reusable Hermes Skill.' },
-          { q:'Monetization', a:'$500 setup for businesses, $1,500/month retainer, $97 templates for creators, $29/month self-serve extractor.' }
-        ]}]
-      },
-      AUTOMATE: {
-        name: 'Automation Builder', status: 'READY', prize: 'Turn offers into workflows', color: C.blue,
-        sections: [{ id:'automation', title:'AUTOMATION', questions:[
-          { q:'Input', a:'Screenshot, URL, niche, comments, reviews, customer messages, or support tickets.' },
-          { q:'Process', a:'Extract demand → classify buyer → score willingness to pay → recommend offer → generate fulfillment workflow.' },
-          { q:'Output', a:'Offer brief, content plan, outreach sequence, landing page copy, MVP feature list, and execution checklist.' },
-          { q:'Human approval point', a:'Approve offer positioning, price, risk level, and channel before execution.' },
-          { q:'Repeatable workflow', a:'Save the successful process as a reusable skill so future runs are faster, cheaper, and more consistent.' }
-        ]}]
-      },
-      SKILLS: {
-        name: 'Hermes Skill Memory', status: 'LEARNING', prize: 'Reduce repeat token cost', color: C.purple,
-        sections: [{ id:'skills', title:'SKILLS', questions:[
-          { q:'What should be remembered?', a:'Successful workflows, prompts, scoring logic, outreach formats, offer structures, and automation patterns.' },
-          { q:'Skill files to create', a:'neuro-demand-extraction.md\nneuro-offer-builder.md\nneuro-content-repurpose.md\nneuro-cold-outreach.md\nneuro-local-business-automation.md\nneuro-hermes-skill-writer.md' },
-          { q:'Closed learning loop', a:'After each successful execution, NEURO reflects, extracts reusable procedure, writes a Hermes Skill, and uses that skill on future runs instead of spending full reasoning tokens.' },
-          { q:'Cost goal', a:'Move repeated work from expensive reasoning calls into procedural memory. Use models only when the task is new, ambiguous, or high-value.' }
-        ]}]
-      }
-    };
-
-    let activeApp = 'DEMAND';
-    const answers = JSON.parse(localStorage.getItem('neuro_answers') || '{}');
-
-    function key(secId, qIdx) { return `${activeApp}-${secId}-${qIdx}`; }
-    function getAnswer(secId, qIdx) {
-      const app = APPLICATIONS[activeApp];
-      return answers[key(secId,qIdx)] ?? app.sections.find(s => s.id === secId).questions[qIdx].a;
-    }
-    function setAnswer(secId, qIdx, value) {
-      answers[key(secId,qIdx)] = value;
-      localStorage.setItem('neuro_answers', JSON.stringify(answers));
-      updateCounts();
-    }
-    function showToast(text='COPIED') {
-      const t = document.getElementById('toast');
-      t.textContent = text; t.classList.add('show');
-      setTimeout(() => t.classList.remove('show'), 1300);
-    }
-    function copyText(text) { navigator.clipboard?.writeText(text); showToast(); }
-    function copyAll() {
-      const app = APPLICATIONS[activeApp];
-      let text = `${app.name.toUpperCase()}\n${'='.repeat(60)}\n\n`;
-      app.sections.forEach(sec => {
-        text += `${sec.title}\n${'-'.repeat(40)}\n`;
-        sec.questions.forEach((q,i) => { text += `\nQ: ${q.q}\nA: ${getAnswer(sec.id,i)}\n`; });
-        text += '\n';
-      });
-      copyText(text);
-    }
-    function improveLocal(secId, qIdx) {
-      const current = getAnswer(secId, qIdx);
-      const improved = `OPERATOR VERSION:\n\n${current}\n\nNEXT ACTION:\nTurn this into a specific offer, define the buyer, price the first version, and save the repeatable process as a NEURO skill.`;
-      setAnswer(secId, qIdx, improved);
-      render();
-      showToast('IMPROVED LOCALLY');
-    }
-
-    function renderTabs() {
-      const tabs = document.getElementById('tabs');
-      tabs.innerHTML = Object.entries(APPLICATIONS).map(([id, app]) => `
-        <button class="tab mono ${id === activeApp ? 'active' : ''}" onclick="activeApp='${id}'; render();">
-          <div>${id}</div><small>${app.status}</small>
-        </button>
-      `).join('') + `
-        <div class="statusbar">
-          <div class="chip mono" id="statusChip">${APPLICATIONS[activeApp].status}</div>
-          <div class="chip mono" id="prizeChip">${APPLICATIONS[activeApp].prize}</div>
-        </div>`;
-    }
-
-    function render() {
-      const app = APPLICATIONS[activeApp];
-      document.documentElement.style.setProperty('--cyan', app.color);
-      renderTabs();
-      const el = document.getElementById('app');
-      el.innerHTML = `
-        <div class="section-nav mono">
-          ${app.sections.map(sec => `<a href="#${sec.id}">${sec.title}</a>`).join('')}
-        </div>
-        ${app.sections.map(sec => `
-          <section id="${sec.id}">
-            <div class="section-title">
-              <div class="bar"></div><h2 class="bebas">${sec.title}</h2><div class="line"></div>
-            </div>
-            <div class="qstack">
-              ${sec.questions.map((q, i) => {
-                const answer = getAnswer(sec.id, i).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-                return `
-                  <div class="qcard">
-                    <div class="qhead">
-                      <div class="question mono">${q.q}</div>
-                      <div class="actions">
-                        <button class="mini ai" onclick="improveLocal('${sec.id}', ${i})">✦ IMPROVE</button>
-                        <button class="mini" onclick="copyText(getAnswer('${sec.id}', ${i}))">COPY</button>
-                      </div>
-                    </div>
-                    <div class="answer">
-                      <textarea oninput="setAnswer('${sec.id}', ${i}, this.value)">${answer}</textarea>
-                    </div>
-                    <div class="count mono" data-count="${sec.id}-${i}">0 words</div>
-                  </div>`;
-              }).join('')}
-            </div>
-          </section>`).join('')}
-        <div class="cta">
-          <div><h3 class="bebas">READY TO EXECUTE?</h3><p class="mono">Copy the current module, paste into Codex, or use it as an operating brief.</p></div>
-          <button class="bigbtn bebas" onclick="copyAll()">COPY ALL</button>
-        </div>`;
-      updateCounts();
-      drawScene(app.color);
-    }
-
-    function updateCounts() {
-      const app = APPLICATIONS[activeApp];
-      app.sections.forEach(sec => sec.questions.forEach((q,i) => {
-        const c = document.querySelector(`[data-count="${sec.id}-${i}"]`);
-        if (c) c.textContent = `${getAnswer(sec.id,i).trim().split(/\s+/).filter(Boolean).length} words`;
-      }));
-    }
-
-    function tickClock() { document.getElementById('clock').textContent = new Date().toTimeString().slice(0,8); }
-    setInterval(tickClock, 1000); tickClock();
-
-    let sceneColor = C.cyan, fog = [];
-    const canvas = document.getElementById('scene');
-    const ctx = canvas.getContext('2d');
-    function resize() { canvas.width = innerWidth; canvas.height = innerHeight; }
-    addEventListener('resize', resize); resize();
-    function drawScene(color) {
-      sceneColor = color || C.cyan;
-      fog = Array.from({length:40}, () => ({
-        x:Math.random()*1600, y:Math.random()*300, r:50+Math.random()*90,
-        vx:(Math.random()-.5)*.08, col:[sceneColor,C.blue,C.purple][Math.floor(Math.random()*3)]
-      }));
-    }
-    function loop() {
-      const W=canvas.width,H=canvas.height;
-      ctx.clearRect(0,0,W,H);
-      const bg=ctx.createLinearGradient(0,0,0,H);
-      bg.addColorStop(0,'#020508'); bg.addColorStop(.5,'#040d1a'); bg.addColorStop(1,'#020508');
-      ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
-      ctx.save(); ctx.globalAlpha=.04;
-      const hor=H*.6;
-      for(let i=-12;i<=12;i++){ ctx.beginPath(); ctx.moveTo(W/2+i*72,hor); ctx.lineTo(W/2+i*72*5,H+80); ctx.strokeStyle=sceneColor; ctx.lineWidth=.5; ctx.stroke(); }
-      for(let j=0;j<7;j++){ const f=j/7,y=hor+(H-hor+80)*(f*f),sp=W*.5+(H-hor+80)*f*2; ctx.beginPath(); ctx.moveTo(W/2-sp,y); ctx.lineTo(W/2+sp,y); ctx.strokeStyle=sceneColor; ctx.lineWidth=.3; ctx.stroke(); }
-      ctx.restore();
-      fog.forEach(f=>{ f.x+=f.vx; if(f.x<-f.r)f.x=W+f.r; if(f.x>W+f.r)f.x=-f.r; const g=ctx.createRadialGradient(f.x,f.y,0,f.x,f.y,f.r); g.addColorStop(0,f.col+'0e'); g.addColorStop(1,'transparent'); ctx.fillStyle=g; ctx.fillRect(f.x-f.r,f.y-f.r,f.r*2,f.r*2); });
-      ctx.fillStyle='rgba(0,0,0,.05)'; for(let y=0;y<H;y+=3)ctx.fillRect(0,y,W,1);
-      requestAnimationFrame(loop);
-    }
-
-    drawScene(C.cyan);
-    render();
-    loop();
-  </script>
+<div class="root"><canvas id="scene"></canvas><div class="scanlines"></div><div class="scanbar"></div><div class="wrap">
+<header><div><div class="brand-row"><div class="bebas brand-neuro">NEURO</div><div class="bebas brand-title">CHAOS RANK v2</div></div><div class="mono subline">OPPORTUNITY → OFFER → CONTENT → SERVICE → VIDEO → SKILL → GOVERNANCE</div></div><div class="top-actions"><span class="mono time" id="clock">00:00:00</span><button class="copy-all mono" onclick="copyModule()">COPY MODULE</button><button class="copy-all mono" onclick="copyAll()">EXPORT ALL</button></div></header>
+<div class="grid"><aside class="sidebar"><div class="mono side-title">AGENTROPOLIS MODULES</div><nav id="tabs"></nav><div style="height:10px"></div><div class="mono side-title">MASTER CHAIN</div><div id="chain"></div></aside><main id="app"></main></div>
+</div></div><div class="toast mono" id="toast">COPIED</div>
+<script>
+const C={cyan:'#00ffc8',gold:'#f0cc6a',pink:'#ff2d78',orange:'#ff6b35',purple:'#9d4edd',blue:'#00b4ff',green:'#39ff14'};
+const CHAIN=['Hermes Core','Vault','Paperclip Org','Skill Factory','HyperFrames Video','Firecrawl CTF / Web Agent Tests','Agentic Content Creation','AI Services Agency Installer','AGENTROPOLIS Naturalization','Finance Kit Issuer','Anti-Moloch Guardrail'];
+const MODULES={
+DEMAND:{name:'Opportunity Scorer',status:'SIGNAL',color:C.cyan,summary:'Extract what people want, who will pay, and whether NEURO should build, test, or ignore the opportunity.',flow:['signal ingest','buyer map','pain score','pay score','verdict'],sections:[{id:'score',title:'OPPORTUNITY SCORE',questions:[
+{q:'Source signal',a:'Paste comments, screenshots, Reddit/X/YouTube threads, reviews, support tickets, or niche observations.'},
+{q:'Buyer identity',a:'Define the buyer: solo creator, local business, agency, SaaS team, operator, coach, ecommerce brand, or enterprise team.'},
+{q:'Pain / desire extracted',a:'Name the exact pain, desired outcome, urgency, current workaround, and language people keep repeating.'},
+{q:'Willingness to pay score',a:'Score 1-10. A 10 means urgent, repeated, budgeted, painful, and tied to revenue or survival.'},
+{q:'Final verdict',a:'BUILD / TEST / IGNORE. Include one direct reason and the smallest next test.'}]}]},
+OFFER:{name:'Offer Builder',status:'REVENUE',color:C.gold,summary:'Turn extracted demand into a clear offer, price ladder, and first-sale path.',flow:['promise','buyer','mechanism','price','first sale'],sections:[{id:'offer',title:'OFFER SYSTEM',questions:[
+{q:'Offer name',a:'NEURO Opportunity Engine'},
+{q:'One-line promise',a:'Find what people want, turn it into an offer, and automate the path to revenue.'},
+{q:'Target customer',a:'Solo creators, agencies, local businesses, SaaS founders, and operators who need leads, content, sales, or automation.'},
+{q:'Pricing ladder',a:'Free diagnostic → $97 template → $500 setup → $1,500/month retainer → enterprise license.'},
+{q:'First sale motion',a:'Run demand extraction for one niche, create a custom revenue workflow, send 20 personalized demos, close 1 pilot.'}]}]},
+SKILLGEN:{name:'Hermes Skill Generator',status:'MEMORY',color:C.purple,summary:'Convert repeated successful workflows into reusable procedural skill files.',flow:['reflect','compress','write SKILL.md','reuse','lower cost'],sections:[{id:'skills',title:'SKILL FACTORY',questions:[
+{q:'Skill to create',a:'neuro-demand-extraction.md\nneuro-offer-builder.md\nneuro-content-repurpose.md\nneuro-cold-outreach.md\nneuro-local-business-automation.md\nneuro-hermes-skill-writer.md'},
+{q:'Trigger phrases',a:'Use this skill when the user asks to extract demand, build offers, create repeatable workflows, reduce token cost, or package a NEURO process.'},
+{q:'Procedure to remember',a:'Inputs → scoring rules → decision gates → output format → examples → failure modes → handoff skills.'},
+{q:'Closed loop rule',a:'After each successful execution, reflect, extract the repeatable logic, update the skill, and route future repeat tasks through procedural memory.'},
+{q:'Cost doctrine',a:'Use expensive reasoning only for new, ambiguous, or high-value tasks. Repeated execution belongs in skills.'}]}]},
+CONTENT:{name:'Agentic Content Engine',status:'DISTRIBUTE',color:C.orange,summary:'Launch emails, launch posts, X/LinkedIn playbooks, short video outlines, and campaign assets.',flow:['hook','angle','asset','platform','CTA'],sections:[{id:'content',title:'CONTENT ENGINE',questions:[
+{q:'Launch thesis',a:'What is being launched, who is it for, and what belief must the audience adopt before they buy?'},
+{q:'X / LinkedIn playbook',a:'Hook → tension → proof → mechanism → CTA. Short, sharp, no vague hype.'},
+{q:'Launch email',a:'Problem → cost of inaction → mechanism → proof → direct ask.'},
+{q:'Video playbook',a:'First 3 seconds: pattern interrupt. Next 20 seconds: problem. Next 30 seconds: mechanism. Final 10 seconds: CTA.'},
+{q:'Repurpose map',a:'One idea becomes: X post, LinkedIn post, email, short video, carousel, landing section, sales DM.'}]}]},
+AGENCY:{name:'AI Services Agency Builder',status:'INSTALL',color:C.green,summary:'Productize Hermes/Paperclip into a simple agency offer for businesses and solo creators.',flow:['diagnose','package','fulfill','retain','upsell'],sections:[{id:'agency',title:'AGENCY INSTALLER',questions:[
+{q:'Core agency offer',a:'AI workflow setup for businesses: demand extraction, lead generation, content automation, CRM workflow, and reusable SOP/skill pack.'},
+{q:'Starter package',a:'$500 setup: one workflow, one dashboard, one content system, one training handoff.'},
+{q:'Retainer package',a:'$1,500/month: monthly optimization, content ops, lead workflow, reporting, skill updates.'},
+{q:'Client acquisition',a:'Target businesses with obvious manual bottlenecks, weak websites, low content output, or missed lead follow-up.'},
+{q:'Delivery rule',a:'No custom chaos. Every client delivery must become a repeatable module, template, or Hermes skill.'}]}]},
+VIDEO:{name:'HyperFrames Video Builder',status:'RENDER',color:C.pink,summary:'Plan HTML-native videos using HyperFrames / avatar-video style workflows without locking into a commercial brand.',flow:['script','scene','avatar','HTML frames','export'],sections:[{id:'video',title:'VIDEO BUILDER',questions:[
+{q:'Video objective',a:'Explain, sell, onboard, announce, train, or pitch.'},
+{q:'Scene structure',a:'Cold open → problem → mechanism → proof → demo → CTA.'},
+{q:'HTML-native frame plan',a:'Each scene is a div/frame with background, text, motion cue, audio cue, and export instruction.'},
+{q:'Avatar / voice notes',a:'Use a host persona only when it improves clarity. Avoid dependence on any single vendor.'},
+{q:'Reusable skill output',a:'hyperframes-video-builder skill should output storyboard, script, frame spec, CSS animation cues, and export checklist.'}]}]},
+HACKATHON:{name:'Hackathon Scout',status:'WATCH',color:C.blue,summary:'Track build opportunities and convert them into submissions, demos, and reusable artifacts.',flow:['scan','fit score','build map','demo plan','submit'],sections:[{id:'hackathon',title:'SCOUT',questions:[
+{q:'Opportunity sources',a:'Hackathons, startup programs, API credit programs, MCP demos, AI tooling challenges, developer contests.'},
+{q:'Fit scoring',a:'Score against: existing assets, demo clarity, prize alignment, sponsor relevance, build time, distribution value.'},
+{q:'Submission package',a:'Project name, one-liner, problem, demo script, tech stack, why it wins, screenshots, video outline.'},
+{q:'Build map',a:'Reuse existing AGENTROPOLIS modules first. Only build missing sponsor integration or demo glue.'},
+{q:'Skill output',a:'hackathon-scout should create a ranked opportunity table and a ready-to-submit application draft.'}]}]},
+FIRECRAWL:{name:'Firecrawl Agent Test Lab',status:'STRESS',color:C.orange,summary:'Timed crawl/search tasks that stress-test agent orchestration, retrieval, scoring, and reporting.',flow:['task','crawl','extract','score','report'],sections:[{id:'ctf',title:'WEB AGENT TESTS',questions:[
+{q:'Test mission',a:'Find a specific fact, market signal, competitor page, pricing clue, or policy update under time pressure.'},
+{q:'Rules',a:'Limit tool calls, require citations, log failures, separate facts from inference, and score confidence.'},
+{q:'Stress dimensions',a:'Ambiguity, recency, conflicting sources, noisy pages, login walls, duplicate content, hallucination traps.'},
+{q:'Output report',a:'Answer, sources, confidence, unresolved risks, next crawl target, and skill improvement note.'},
+{q:'Skill purpose',a:'firecrawl-agent-ctf hardens the web-agent layer before it is trusted with business workflows.'}]}]},
+VAULT:{name:'Vault Registry',status:'CREDENTIALS',color:C.gold,summary:'Credential and token workflow memory for Hermes Vault without exposing secrets to agents or logs.',flow:['login','token','refresh','audit','redact'],sections:[{id:'vault',title:'VAULT',questions:[
+{q:'Vault role',a:'Credential system for agent workflows: OAuth login, token storage, refresh handling, provider profiles, and audit trails.'},
+{q:'Providers',a:'Google, GitHub, OpenAI-compatible providers, custom OAuth providers, and future MCP tools.'},
+{q:'Safety rule',a:'LLM never sees raw secrets. Tools never print raw secrets. Logs never persist raw secrets.'},
+{q:'Skill to create',a:'hermes-vault SKILL.md: setup steps, env requirements, login flow, refresh flow, audit events, redaction rules.'},
+{q:'Failure mode',a:'If token handling is uncertain, stop execution and request human verification. Never improvise around credentials.'}]}]},
+GUARD:{name:'Anti-Moloch Governance Panel',status:'GUARD',color:C.pink,summary:'Keep financial/entity/agency workflows compliant, bounded, logged, and human-approved.',flow:['scope','risk','approval','execute','audit'],sections:[{id:'guard',title:'GUARDRAIL',questions:[
+{q:'Core doctrine',a:'Agents may assist compliant workflows. Agents may not become unsupervised sovereign financial actors.'},
+{q:'Blocked behavior',a:'No autonomous entity formation, bank account opening, financial commitments, legal filings, investment actions, or credential use without explicit human approval.'},
+{q:'Allowed behavior',a:'Draft checklists, explain requirements, prepare documents for review, track public developments, and produce non-legal/non-financial operational briefs.'},
+{q:'Approval gate',a:'Any workflow touching money, legal identity, credentials, taxes, securities, or contracts requires human review and logged approval.'},
+{q:'Skill to create',a:'agent-financial-actor-guardrail SKILL.md: triggers, blocked actions, allowed actions, escalation language, audit output.'}]}]},
+ENTITY:{name:'Entity Formation Monitor',status:'MONITOR',color:C.green,summary:'Track public developments around agentic LLCs, ClawBank-style structures, entity tools, and compliance changes.',flow:['watch','summarize','risk','opportunity','brief'],sections:[{id:'entity',title:'ENTITY MONITOR',questions:[
+{q:'Monitor scope',a:'Agentic entity formation, AI wallets, business identity, LLC tooling, compliance tech, and public regulatory updates.'},
+{q:'Output brief',a:'What changed, why it matters, who is affected, risk level, opportunity level, and what NEURO should not do yet.'},
+{q:'Compliance stance',a:'Informational monitoring only. No legal advice. No filing. No autonomous financial or legal execution.'},
+{q:'Skill output',a:'agentic-entity-formation-monitor should produce weekly briefs and trigger Anti-Moloch review on high-risk items.'},
+{q:'Escalation',a:'When the topic touches legal formation, banking, securities, tax, or fiduciary duties, route to human professional review.'}]}]}
+};
+let active='DEMAND';const answers=JSON.parse(localStorage.getItem('chaos_rank_v2_answers')||'{}');
+function k(sec,i){return `${active}-${sec}-${i}`}function getA(sec,i){return answers[k(sec,i)]??MODULES[active].sections.find(s=>s.id===sec).questions[i].a}function setA(sec,i,v){answers[k(sec,i)]=v;localStorage.setItem('chaos_rank_v2_answers',JSON.stringify(answers));counts()}function toast(txt='COPIED'){const t=document.getElementById('toast');t.textContent=txt;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1300)}function clip(txt){navigator.clipboard?.writeText(txt);toast()}function moduleText(id=active){const m=MODULES[id];let text=`${m.name.toUpperCase()}\n${'='.repeat(60)}\n${m.summary}\n\n`;m.sections.forEach(s=>{text+=`${s.title}\n${'-'.repeat(40)}\n`;s.questions.forEach((q,i)=>{const val=id===active?getA(s.id,i):q.a;text+=`\nQ: ${q.q}\nA: ${val}\n`});text+='\n'});return text}function copyModule(){clip(moduleText())}function copyAll(){let text='AGENTROPOLIS CHAOS RANK v2\n'+ '='.repeat(60)+'\n\nMASTER CHAIN\n'+CHAIN.join(' → ')+'\n\n';Object.keys(MODULES).forEach(id=>text+=moduleText(id)+'\n');clip(text)}function improve(sec,i){const val=getA(sec,i);setA(sec,i,`OPERATOR VERSION:\n\n${val}\n\nNEXT ACTION:\nDefine owner, first input, expected output, risk gate, monetization path, and the Hermes skill this should become.`);render();toast('IMPROVED LOCALLY')}
+function render(){const m=MODULES[active];document.documentElement.style.setProperty('--active',m.color);document.getElementById('tabs').innerHTML=Object.entries(MODULES).map(([id,x])=>`<button class="tab mono ${id===active?'active':''}" onclick="active='${id}';render()"><div>${id}</div><small>${x.name}</small></button>`).join('');document.getElementById('chain').innerHTML=CHAIN.map(x=>`<span class="chip mono">${x}</span>`).join('');document.getElementById('app').innerHTML=`<div class="dashboard"><div class="metric mono"><label>MODULES</label><strong class="bebas">${Object.keys(MODULES).length}</strong></div><div class="metric mono"><label>ACTIVE</label><strong class="bebas">${m.status}</strong></div><div class="metric mono"><label>CHAIN NODES</label><strong class="bebas">${CHAIN.length}</strong></div><div class="metric mono"><label>MODE</label><strong class="bebas">STATIC</strong></div></div><div class="module-head"><div class="mono module-kicker">AGENTROPOLIS // ${m.status}</div><h1 class="bebas">${m.name}</h1><p>${m.summary}</p><div class="flow mono">${m.flow.map(f=>`<span>${f}</span>`).join('')}</div></div>${m.sections.map(s=>`<section id="${s.id}"><div class="section-title"><div class="bar"></div><h2 class="bebas">${s.title}</h2><div class="line"></div></div><div class="qstack">${s.questions.map((q,i)=>{const val=getA(s.id,i).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');const cls=val.length>250?'qcard full':'qcard';return `<div class="${cls}"><div class="qhead"><div class="question mono">${q.q}</div><div class="actions"><button class="mini ai" onclick="improve('${s.id}',${i})">✦ IMPROVE</button><button class="mini" onclick="clip(getA('${s.id}',${i}))">COPY</button></div></div><div class="answer"><textarea oninput="setA('${s.id}',${i},this.value)">${val}</textarea></div><div class="count mono" data-count="${s.id}-${i}">0 words</div></div>`}).join('')}</div></section>`).join('')}<div class="cta"><div><h3 class="bebas">READY TO EXECUTE?</h3><p class="mono">Copy this module into Codex, Hermes, or your AGENTROPOLIS Skill Pack queue.</p></div><button class="bigbtn bebas" onclick="copyModule()">COPY MODULE</button></div>`;counts();drawScene(m.color)}
+function counts(){const m=MODULES[active];m.sections.forEach(s=>s.questions.forEach((q,i)=>{const el=document.querySelector(`[data-count="${s.id}-${i}"]`);if(el)el.textContent=`${getA(s.id,i).trim().split(/\s+/).filter(Boolean).length} words`}))}function clock(){document.getElementById('clock').textContent=new Date().toTimeString().slice(0,8)}setInterval(clock,1000);clock();
+let sceneColor=C.cyan,fog=[];const canvas=document.getElementById('scene'),ctx=canvas.getContext('2d');function resize(){canvas.width=innerWidth;canvas.height=innerHeight}addEventListener('resize',resize);resize();function drawScene(color){sceneColor=color||C.cyan;fog=Array.from({length:42},()=>({x:Math.random()*1600,y:Math.random()*330,r:50+Math.random()*95,vx:(Math.random()-.5)*.08,col:[sceneColor,C.blue,C.purple,C.gold][Math.floor(Math.random()*4)]}))}function loop(){const W=canvas.width,H=canvas.height;ctx.clearRect(0,0,W,H);const bg=ctx.createLinearGradient(0,0,0,H);bg.addColorStop(0,'#020508');bg.addColorStop(.5,'#040d1a');bg.addColorStop(1,'#020508');ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);ctx.save();ctx.globalAlpha=.04;const hor=H*.6;for(let i=-14;i<=14;i++){ctx.beginPath();ctx.moveTo(W/2+i*72,hor);ctx.lineTo(W/2+i*72*5,H+80);ctx.strokeStyle=sceneColor;ctx.lineWidth=.5;ctx.stroke()}for(let j=0;j<8;j++){const f=j/8,y=hor+(H-hor+80)*(f*f),sp=W*.5+(H-hor+80)*f*2.2;ctx.beginPath();ctx.moveTo(W/2-sp,y);ctx.lineTo(W/2+sp,y);ctx.strokeStyle=sceneColor;ctx.lineWidth=.3;ctx.stroke()}ctx.restore();fog.forEach(f=>{f.x+=f.vx;if(f.x<-f.r)f.x=W+f.r;if(f.x>W+f.r)f.x=-f.r;const g=ctx.createRadialGradient(f.x,f.y,0,f.x,f.y,f.r);g.addColorStop(0,f.col+'0e');g.addColorStop(1,'transparent');ctx.fillStyle=g;ctx.fillRect(f.x-f.r,f.y-f.r,f.r*2,f.r*2)});ctx.fillStyle='rgba(0,0,0,.05)';for(let y=0;y<H;y+=3)ctx.fillRect(0,y,W,1);requestAnimationFrame(loop)}drawScene(C.cyan);render();loop();
+</script>
 </body>
 </html>
