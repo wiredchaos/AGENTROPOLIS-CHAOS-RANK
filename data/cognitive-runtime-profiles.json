@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-17",
+  "policy": "default-deny",
+  "profiles": [
+    {
+      "profile_id": "external.tiger.jspace-v3.6",
+      "enabled": false,
+      "required_aegis_states": ["qualified", "production"],
+      "allowed_models": [],
+      "allowed_task_classes": [],
+      "activation_modes": ["fast", "full", "loop"],
+      "fallback": "base-runtime",
+      "deny_on": [
+        "qualification-miss",
+        "policy-mismatch",
+        "ops-regression",
+        "profile-error",
+        "unqualified-version"
+      ],
+      "namespace_guard": {
+        "canonical_jspace": "AGENTROPOLIS::JSPACE",
+        "external_profile": true,
+        "atg": "Atralith"
+      }
+    }
+  ]
+}
