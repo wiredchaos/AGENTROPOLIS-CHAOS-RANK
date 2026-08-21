@@ -19,7 +19,7 @@
     "district": "CHAOS RANK",
     "tags": ["Graph", "LLM", "Claims"],
     "chains_to": ["agent-citation-page"],
-    "chains_from": ["ugc-harvester"]
+    "chains_from": ["ugc-harvester", "x-algorithm-observatory"]
   },
   {
     "id": "geo-audit",
@@ -64,5 +64,16 @@
     "tags": ["Entity", "Citation", "LLM"],
     "chains_to": [],
     "chains_from": ["evidence-graph", "schema-builder"]
+  },
+  {
+    "id": "x-algorithm-observatory",
+    "name": "X ALGORITHM OBSERVATORY",
+    "description": "Tracks public X recommendation-system changes and converts ranking, retrieval, visibility, labeling, experiment, and transparency deltas into provenance-backed intelligence.",
+    "tier": 3,
+    "layer": "INTEL",
+    "district": "CHAOS RANK",
+    "tags": ["X", "Ranking", "Visibility", "OSINT", "Recommender Systems"],
+    "chains_to": ["evidence-graph"],
+    "chains_from": ["ugc-harvester"]
   }
 ]

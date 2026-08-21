@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wiredchaos.github.io/AGENTROPOLIS-CHAOS-RANK/data/x-algorithm-event.schema.json",
+  "title": "CHAOS RANK X Algorithm Event",
+  "type": "object",
+  "required": [
+    "event_id",
+    "detected_at",
+    "source",
+    "classes",
+    "materiality",
+    "evidence_state",
+    "summary",
+    "why_it_matters",
+    "test_required"
+  ],
+  "properties": {
+    "event_id": {"type": "string", "pattern": "^xalgo:"},
+    "detected_at": {"type": "string", "format": "date-time"},
+    "source": {
+      "type": "object",
+      "required": ["repository", "commit_sha", "paths", "source_type"],
+      "properties": {
+        "repository": {"const": "xai-org/x-algorithm"},
+        "commit_sha": {"type": "string", "minLength": 7},
+        "paths": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "source_type": {"enum": ["github", "x-under-the-hood", "x-docs", "operator-data"]}
+      },
+      "additionalProperties": false
+    },
+    "classes": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "RANKING_WEIGHT",
+          "RETRIEVAL_PATH",
+          "REPLY_ROUTING_THRESHOLD",
+          "VISIBILITY_FILTER",
+          "FOLLOWING_VF_PATH",
+          "FOLLOWING_MUTE_CONTEXT",
+          "LABELING_RULE",
+          "SAFETY_MODEL_DIAL",
+          "BRAND_SAFETY_VERSION",
+          "REGULATORY_FILTER",
+          "UNDER_THE_HOOD",
+          "ZERO_ENGAGEMENT_INDEXING",
+          "SEMANTIC_SLATE_CONTEXT",
+          "VM_SEMANTIC_SLATE_INPUTS",
+          "PHOENIX_DIRECT_SOCIAL_FEATURES",
+          "STALE_14D_MODEL_INPUT",
+          "LONG_WINDOW_VIDEO",
+          "EXPERIMENT_CONFIG",
+          "INFRASTRUCTURE_ONLY",
+          "UNKNOWN"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "materiality": {"enum": ["MATERIAL", "NON_MATERIAL", "UNKNOWN"]},
+    "evidence_state": {"enum": ["PUBLISHED", "OBSERVED", "INFERRED", "TESTED", "VERIFIED", "UNKNOWN"]},
+    "summary": {"type": "string", "minLength": 1},
+    "before": {"type": ["object", "null"]},
+    "after": {"type": ["object", "null"]},
+    "delta": {"type": ["object", "null"]},
+    "why_it_matters": {"type": "string", "minLength": 1},
+    "do_not_conclude": {"type": "string"},
+    "test_required": {"type": "boolean"},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "next_action": {"type": "string"},
+    "status": {"enum": ["ACTIVE", "SUPERSEDED", "RETRACTED", "WATCH"]}
+  },
+  "additionalProperties": false
+}
