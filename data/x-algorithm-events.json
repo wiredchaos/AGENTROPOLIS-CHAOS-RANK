@@ -1,0 +1,109 @@
+[
+  {
+    "event_id": "xalgo:aad7179773944e17eb8798bbbf0231d6cd6c1ffc:FOLLOWING_MUTE_CONTEXT:20260819",
+    "detected_at": "2026-08-19T21:25:42Z",
+    "source": {
+      "repository": "xai-org/x-algorithm",
+      "commit_sha": "aad7179773944e17eb8798bbbf0231d6cd6c1ffc",
+      "paths": [
+        "home-mixer/candidate_pipeline/reverse_chron_posts_pipeline.rs",
+        "home-mixer/filters/following_viewer_muted_keyword_filter.rs",
+        "home-mixer/filters/viewer_muted_keyword_filter.rs"
+      ],
+      "source_type": "github"
+    },
+    "classes": ["FOLLOWING_MUTE_CONTEXT", "VISIBILITY_FILTER"],
+    "materiality": "MATERIAL",
+    "evidence_state": "PUBLISHED",
+    "summary": "Following/reverse-chron gained dedicated viewer muted-keyword filtering while the For You path renamed its mute filter to a viewer-specific implementation.",
+    "before": {"following_muted_keyword_filter": false},
+    "after": {"following_muted_keyword_filter": true},
+    "delta": {"following_muted_keyword_filter": "added"},
+    "why_it_matters": "CHAOS RANK reach diagnosis must separate viewer-controlled mute suppression in Following from platform safety labels and For You ranking effects.",
+    "do_not_conclude": "A post missing from one viewer's Following feed is not evidence of an account-wide visibility penalty.",
+    "test_required": false,
+    "confidence": 0.99,
+    "next_action": "Add viewer-preference suppression as a distinct diagnostic cause in visibility analysis.",
+    "status": "ACTIVE"
+  },
+  {
+    "event_id": "xalgo:aad7179773944e17eb8798bbbf0231d6cd6c1ffc:PHOENIX_DIRECT_SOCIAL_FEATURES:20260819",
+    "detected_at": "2026-08-19T21:25:42Z",
+    "source": {
+      "repository": "xai-org/x-algorithm",
+      "commit_sha": "aad7179773944e17eb8798bbbf0231d6cd6c1ffc",
+      "paths": ["phoenix/phoenix/configs.py"],
+      "source_type": "github"
+    },
+    "classes": ["PHOENIX_DIRECT_SOCIAL_FEATURES", "EXPERIMENT_CONFIG"],
+    "materiality": "MATERIAL",
+    "evidence_state": "PUBLISHED",
+    "summary": "The published home_direct_packed Phoenix configuration enabled author-follow-direction inputs and engagement-count features.",
+    "before": {
+      "enable_is_author_followed_by_viewer": false,
+      "enable_is_author_following_viewer": false,
+      "enable_engagement_counts": false
+    },
+    "after": {
+      "enable_is_author_followed_by_viewer": true,
+      "enable_is_author_following_viewer": true,
+      "enable_engagement_counts": true
+    },
+    "delta": {"model_input_surface": "expanded"},
+    "why_it_matters": "Phoenix can represent relationship direction and popularity directly in the published model configuration instead of relying only on downstream heuristics.",
+    "do_not_conclude": "The public config alone does not prove the same checkpoint/config is serving all production traffic.",
+    "test_required": true,
+    "confidence": 0.98,
+    "next_action": "Track checkpoint/config deployment evidence and design matched-post tests for relationship-direction effects.",
+    "status": "WATCH"
+  },
+  {
+    "event_id": "xalgo:aad7179773944e17eb8798bbbf0231d6cd6c1ffc:STALE_14D_MODEL_INPUT:20260819",
+    "detected_at": "2026-08-19T21:25:42Z",
+    "source": {
+      "repository": "xai-org/x-algorithm",
+      "commit_sha": "aad7179773944e17eb8798bbbf0231d6cd6c1ffc",
+      "paths": ["phoenix/phoenix/configs.py"],
+      "source_type": "github"
+    },
+    "classes": ["STALE_14D_MODEL_INPUT", "EXPERIMENT_CONFIG"],
+    "materiality": "MATERIAL",
+    "evidence_state": "PUBLISHED",
+    "summary": "The published home_direct_packed configuration explicitly enabled stale-post handling.",
+    "before": {"enable_stale_post": false},
+    "after": {"enable_stale_post": true},
+    "delta": {"enable_stale_post": "enabled"},
+    "why_it_matters": "Content age can become an explicit model input/treatment boundary rather than being represented only through generic recency behavior.",
+    "do_not_conclude": "This does not establish that every production ranking request currently uses the same stale-post configuration.",
+    "test_required": true,
+    "confidence": 0.98,
+    "next_action": "Track behavior around the 14-day boundary and seek serving-config evidence before promotion to VERIFIED.",
+    "status": "WATCH"
+  },
+  {
+    "event_id": "xalgo:aad7179773944e17eb8798bbbf0231d6cd6c1ffc:SAFETY_MODEL_DIAL:20260819",
+    "detected_at": "2026-08-19T21:25:42Z",
+    "source": {
+      "repository": "xai-org/x-algorithm",
+      "commit_sha": "aad7179773944e17eb8798bbbf0231d6cd6c1ffc",
+      "paths": [
+        "grox/config/config.py",
+        "grox/flows/ptos/classifier.py"
+      ],
+      "source_type": "github"
+    },
+    "classes": ["SAFETY_MODEL_DIAL", "LABELING_RULE"],
+    "materiality": "MATERIAL",
+    "evidence_state": "PUBLISHED",
+    "summary": "Grok 4.6 internal was added to safety-policy processing with a published 0.1 dial alongside Grok 4.5 internal paths.",
+    "before": {"grok_4_6_internal_dial": 0.0},
+    "after": {"grok_4_6_internal_dial": 0.1},
+    "delta": {"grok_4_6_internal_dial": 0.1},
+    "why_it_matters": "Safety and visibility-label outcomes can shift because of model-judge experiments even when rule registries remain unchanged.",
+    "do_not_conclude": "A 10% model dial does not prove a 10% change in final labels or reach outcomes.",
+    "test_required": true,
+    "confidence": 0.99,
+    "next_action": "Track safety-label distributions and model-dial changes independently from explicit rule changes.",
+    "status": "WATCH"
+  }
+]
